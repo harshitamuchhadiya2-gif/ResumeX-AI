@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}ResumeX - Smart Resume Analyzer{% endblock %}
+
+{% block content %}
+<section class="hero glass-card hero-single">
+    <div class="hero-left full-width">
+        <span class="badge">AI Resume Analyzer</span>
+        <h1>Boost Your Resume Match with <span>Smart Analysis</span></h1>
+        <p>
+            Upload your resume, paste the job description, and instantly discover
+            missing skills, ATS compatibility, and personalized improvement suggestions
+            to increase your chances of landing interviews.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="{{ url_for('register') }}" class="primary-btn">Get Started</a>
+            <a href="{{ url_for('login') }}" class="secondary-btn">Login</a>
+            <a href="{{ url_for('about') }}" class="secondary-btn">Learn More</a>
+        </div>
+
+        <div class="hero-highlights">
+            <div class="highlight-pill">✔ ATS Friendly Analysis</div>
+            <div class="highlight-pill">✔ Smart Skill Matching</div>
+            <div class="highlight-pill">✔ Instant Suggestions</div>
+        </div>
+    </div>
+</section>
+
+<section class="features-grid">
+    <div class="feature-card">
+        <h3>📄 Resume Parsing</h3>
+        <p>Automatically extract and analyze content from your PDF resume.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>🎯 Job Match Analysis</h3>
+        <p>Compare your resume against any job description in seconds.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>🧠 Skill Gap Detection</h3>
+        <p>Identify missing keywords and skills recruiters are looking for.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>🚀 Improvement Suggestions</h3>
+        <p>Get actionable recommendations to strengthen your resume.</p>
+    </div>
+</section>
+{% endblock %}

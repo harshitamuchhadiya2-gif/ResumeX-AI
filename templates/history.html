@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}History - ResumeX Pro{% endblock %}
+
+{% block content %}
+<div class="page-head">
+    <h1>Your Analysis History</h1>
+    <p>View your previous resume analysis reports and download them anytime.</p>
+</div>
+
+<div class="history-grid">
+    {% if history %}
+        {% for item in history %}
+        <div class="history-card glass-card">
+            <div class="history-top">
+                <h3>{{ item.filename }}</h3>
+                <span>{{ item.timestamp }}</span>
+            </div>
+
+            <div class="history-info">
+                <p><strong>Match Score:</strong> {{ item.match_score }}%</p>
+                <p><strong>Match Level:</strong> {{ item.match_level }}</p>
+            </div>
+
+            <div class="history-actions">
+                <a href="{{ url_for('download_report', report_id=item.id if item.id else loop.index0) }}" class="primary-btn">
+                    Download Report
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="glass-card empty-history-card">
+            <p>No analysis history found yet.</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

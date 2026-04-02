@@ -1,0 +1,104 @@
+{
+    "harshita": [
+        {
+            "match_score": 6.39,
+            "match_level": "Low Match",
+            "resume_skills": [
+                "Communication",
+                "Leadership"
+            ],
+            "job_skills": [
+                "Communication",
+                "JavaScript",
+                "MySQL",
+                "Problem Solving",
+                "Python"
+            ],
+            "missing_skills": [
+                "JavaScript",
+                "MySQL",
+                "Problem Solving",
+                "Python"
+            ],
+            "keyword_overlap": 1,
+            "date": "2026-03-30 15:40:48"
+        },
+        {
+            "match_score": 6.39,
+            "match_level": "Low Match",
+            "resume_skills": [
+                "Communication",
+                "Leadership"
+            ],
+            "job_skills": [
+                "Communication",
+                "JavaScript",
+                "MySQL",
+                "Problem Solving",
+                "Python"
+            ],
+            "missing_skills": [
+                "JavaScript",
+                "MySQL",
+                "Problem Solving",
+                "Python"
+            ],
+            "keyword_overlap": 1,
+            "date": "2026-03-30 15:41:16"
+        },
+        {
+            "match_score": 9.37,
+            "match_level": "Low Match",
+            "resume_skills": [
+                "CSS",
+                "Communication",
+                "Django",
+                "Excel",
+                "HTML",
+                "JavaScript",
+                "MySQL",
+                "Python",
+                "React"
+            ],
+            "job_skills": [
+                "Communication",
+                "JavaScript",
+                "MySQL",
+                "Problem Solving",
+                "Python"
+            ],
+            "missing_skills": [
+                "Problem Solving"
+            ],
+            "keyword_overlap": 4,
+            "date": "2026-03-30 16:21:21"
+        },
+        {
+            "match_score": 9.28,
+            "match_level": "\u274c Low Match",
+            "resume_skills": [
+                "CSS",
+                "Communication",
+                "Django",
+                "Excel",
+                "HTML",
+                "JavaScript",
+                "MySQL",
+                "Python",
+                "React"
+            ],
+            "job_skills": [
+                "Communication",
+                "JavaScript",
+                "MySQL",
+                "Problem Solving",
+                "Python"
+            ],
+            "missing_skills": [
+                "Problem Solving"
+            ],
+            "keyword_overlap": 4,
+            "date": "2026-03-30 16:49:22"
+        }
+    ]
+}

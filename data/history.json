@@ -1,0 +1,18 @@
+[
+    {
+        "filename": "resume_sample_student.pdf",
+        "match_score": 10.46,
+        "missing_skills": [
+            "python",
+            "sql",
+            "java",
+            "mysql",
+            "javascript",
+            "problem solving"
+        ],
+        "suggestions": [
+            "Your resume needs improvement to better match this role.",
+            "Consider adding these skills: python, sql, java, mysql, javascript, problem solving"
+        ]
+    }
+]

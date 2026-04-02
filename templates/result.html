@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Resume Analysis Result{% endblock %}
+
+{% block content %}
+<div class="content form-container">
+    {% if result %}
+    <h2>📄 Resume Analysis Result</h2>
+    <div class="flash-messages">
+        <div class="flash success">Analysis Completed!</div>
+    </div>
+
+    <div class="result-container">
+        <p><strong>🧠 Resume Skills:</strong> 
+            {% for skill in result.skills_matched %}
+                <span class="badge">{{ skill }}</span>
+            {% endfor %}
+        </p>
+
+        <p><strong>🎯 Job Skills:</strong> 
+            {% for skill in result.job_skills if result.job_skills is defined %}
+                <span class="badge job-skill">{{ skill }}</span>
+            {% endfor %}
+        </p>
+
+        <p><strong>📊 Match Score:</strong> {{ result.match_percentage }}%</p>
+        <p><strong>⚡ Match Level:</strong> 
+            {% if result.match_percentage >= 80 %}
+                High
+            {% elif result.match_percentage >= 50 %}
+                Medium
+            {% else %}
+                Low
+            {% endif %}
+        </p>
+
+        <h3>💡 Suggestions:</h3>
+        <ul>
+            {% for suggestion in result.suggestions %}
+                <li>{{ suggestion }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <a href="{{ url_for('analyzer') }}" class="btn">Analyze Another Resume</a>
+
+    {% else %}
+    <p>No analysis result available.</p>
+    {% endif %}
+</div>
+{% endblock %}

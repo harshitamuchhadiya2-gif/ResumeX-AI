@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Analyzer - ResumeX{% endblock %}
+
+{% block content %}
+<h1>Resume Analyzer</h1>
+<p>Upload your resume and get instant feedback.</p>
+
+<form action="#" method="post" enctype="multipart/form-data">
+    <input type="file" name="resume" accept=".pdf,.doc,.docx">
+    <button type="submit">Analyze</button>
+</form>
+{% endblock %}
