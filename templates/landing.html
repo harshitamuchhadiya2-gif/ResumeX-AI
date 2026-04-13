@@ -3,49 +3,102 @@
 {% block title %}ResumeX - Smart Resume Analyzer{% endblock %}
 
 {% block content %}
-<section class="hero glass-card hero-single">
-    <div class="hero-left full-width">
-        <span class="badge">AI Resume Analyzer</span>
-        <h1>Boost Your Resume Match with <span>Smart Analysis</span></h1>
+
+<!-- 🔥 HERO SECTION -->
+<section class="hero glass-card hero-modern">
+
+    <div class="hero-content">
+
+        <span class="badge">🚀 AI Resume Analyzer</span>
+
+        <h1>
+            Land Your Dream Job with <span>Smart Resume Insights</span>
+        </h1>
+
         <p>
-            Upload your resume, paste the job description, and instantly discover
-            missing skills, ATS compatibility, and personalized improvement suggestions
-            to increase your chances of landing interviews.
+            Analyze your resume instantly, match it with job descriptions,
+            and get powerful AI-driven suggestions to boost your chances.
         </p>
 
         <div class="hero-buttons">
-            <a href="{{ url_for('register') }}" class="primary-btn">Get Started</a>
+            <a href="{{ url_for('register') }}" class="primary-btn">Get Started Free</a>
             <a href="{{ url_for('login') }}" class="secondary-btn">Login</a>
-            <a href="{{ url_for('about') }}" class="secondary-btn">Learn More</a>
         </div>
 
-        <div class="hero-highlights">
-            <div class="highlight-pill">✔ ATS Friendly Analysis</div>
-            <div class="highlight-pill">✔ Smart Skill Matching</div>
-            <div class="highlight-pill">✔ Instant Suggestions</div>
+        <div class="hero-stats">
+            <div><strong>95%</strong><span>Accuracy</span></div>
+            <div><strong>Instant</strong><span>Analysis</span></div>
+            <div><strong>AI</strong><span>Powered</span></div>
         </div>
+
     </div>
+
 </section>
 
-<section class="features-grid">
-    <div class="feature-card">
-        <h3>📄 Resume Parsing</h3>
-        <p>Automatically extract and analyze content from your PDF resume.</p>
+
+<!-- ✨ HOW IT WORKS -->
+<section class="steps-section">
+
+    <h2>How It Works</h2>
+
+    <div class="steps-container">
+
+        <div class="step-card">
+            <h3>📄 Upload Resume</h3>
+            <p>Drag & drop your PDF resume in seconds.</p>
+        </div>
+
+        <div class="step-card">
+            <h3>🎯 Match Job</h3>
+            <p>Paste job description to compare instantly.</p>
+        </div>
+
+        <div class="step-card">
+            <h3>📊 Get Insights</h3>
+            <p>Receive score, skills gap & suggestions.</p>
+        </div>
+
     </div>
 
-    <div class="feature-card">
-        <h3>🎯 Job Match Analysis</h3>
-        <p>Compare your resume against any job description in seconds.</p>
-    </div>
-
-    <div class="feature-card">
-        <h3>🧠 Skill Gap Detection</h3>
-        <p>Identify missing keywords and skills recruiters are looking for.</p>
-    </div>
-
-    <div class="feature-card">
-        <h3>🚀 Improvement Suggestions</h3>
-        <p>Get actionable recommendations to strengthen your resume.</p>
-    </div>
 </section>
+
+
+<!-- 💎 CTA SECTION -->
+<section class="cta-section glass-card">
+
+    <h2>Ready to Improve Your Resume?</h2>
+    <p>Start analyzing and stand out from other candidates today.</p>
+
+    <a href="{{ url_for('register') }}" class="primary-btn large-btn">
+        Start Now 🚀
+    </a>
+
+</section>
+
+
+<!-- 🌙 FOOTER -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-brand">
+            <h2>ResumeX Pro</h2>
+            <p>AI-powered resume analysis for smarter job applications.</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 ResumeX Pro • Built with ❤️</p>
+    </div>
+
+</footer>
+
 {% endblock %}

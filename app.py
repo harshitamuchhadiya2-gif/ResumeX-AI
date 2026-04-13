@@ -5,6 +5,8 @@ import uuid
 from datetime import datetime
 from werkzeug.utils import secure_filename
 from io import BytesIO
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 from logic import (
     extract_text_from_pdf,
@@ -101,11 +103,14 @@ def register():
                 flash("Email already registered. Please login.", "warning")
                 return redirect(url_for("login"))
 
+        hashed_password = generate_password_hash(password)
+
         users.append({
-            "name": name,
-            "email": email,
-            "password": password
-        })
+    "name": name,
+    "email": email,
+    "password": hashed_password
+})
+
         save_users(users)
 
         flash("Registration successful! Please login.", "success")
@@ -127,7 +132,7 @@ def login():
         users = load_users()
 
         for user in users:
-            if user.get("email") == email and user.get("password") == password:
+            if user.get("email") == email and check_password_hash(user.get("password"), password):
                 session["logged_in"] = True
                 session["user_name"] = user.get("name", "User")
                 session["user_email"] = user.get("email")

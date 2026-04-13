@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+.venv/
+venv/
+
+# Uploads (IMPORTANT)
+uploads/
+
+# User data (IMPORTANT)
+users.json
+history.json
+
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+Thumbs.db

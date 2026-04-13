@@ -3,20 +3,107 @@
 {% block content %}
 <div class="auth-wrapper">
     <div class="auth-card glass-card">
-        <h1>Create Account</h1>
-        <p>Start your AI-powered resume journey.</p>
 
-        <form method="POST">
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Email Address" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Register Now</button>
+        <h1>Create Account 🚀</h1>
+        <p class="auth-subtext">
+            Start your AI-powered resume journey.
+        </p>
+
+        <!-- Register Form -->
+        <form method="POST" class="auth-form" id="registerForm">
+
+            <!-- Name -->
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="Full Name"
+                    required
+                    minlength="3"
+                >
+            </div>
+
+            <!-- Email -->
+            <div class="input-group">
+                <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Email Address"
+                    required
+                >
+            </div>
+
+            <!-- Password -->
+            <div class="input-group password-group">
+                <input 
+                    type="password" 
+                    name="password" 
+                    id="passwordInput"
+                    placeholder="Password (min 8 characters)"
+                    required
+                    minlength="8"
+                >
+                <span class="toggle-password" onclick="togglePassword()">👁️</span>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="input-group">
+                <input 
+                    type="password" 
+                    id="confirmPassword"
+                    placeholder="Confirm Password"
+                    required
+                >
+            </div>
+
+            <!-- Error Message -->
+            <p id="errorMsg" class="form-error"></p>
+
+            <!-- Button -->
+            <button type="submit" class="auth-btn">
+                Create Account
+            </button>
+
         </form>
 
+        <!-- Footer -->
         <p class="switch-link">
             Already have an account?
-            <a href="{{ url_for('login') }}">Login here</a>
+            <a href="{{ url_for('login') }}">Login</a>
         </p>
+
     </div>
 </div>
+
+<!-- Script -->
+<script>
+
+// Show / Hide Password
+function togglePassword() {
+    const input = document.getElementById("passwordInput");
+    input.type = input.type === "password" ? "text" : "password";
+}
+
+// Form Validation
+document.getElementById("registerForm").addEventListener("submit", function(e) {
+    const password = document.getElementById("passwordInput").value;
+    const confirm = document.getElementById("confirmPassword").value;
+    const errorMsg = document.getElementById("errorMsg");
+
+    errorMsg.textContent = "";
+
+    if (password.length < 8) {
+        e.preventDefault();
+        errorMsg.textContent = "Password must be at least 8 characters.";
+        return;
+    }
+
+    if (password !== confirm) {
+        e.preventDefault();
+        errorMsg.textContent = "Passwords do not match.";
+        return;
+    }
+});
+</script>
+
 {% endblock %}
