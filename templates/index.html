@@ -3,43 +3,68 @@
 {% block title %}Resume Analyzer - ResumeX{% endblock %}
 
 {% block content %}
+
 <div class="page-head">
     <h1>Resume Analyzer</h1>
     <p>Upload your resume and compare it with your target job description.</p>
 </div>
 
 <section class="analyzer-grid">
-    <!-- Left Side Form -->
-    <div class="glass-card form-panel">
-        <h2>Analyze Resume</h2>
-        <form id="analyzeForm" enctype="multipart/form-data">
-            <label>Upload Resume (PDF)</label>
-            <input type="file" name="resume" accept=".pdf" required>
 
-            <label>Paste Job Description</label>
-            <textarea name="job_description" rows="10" placeholder="Paste the job description here..." required></textarea>
+    <!-- LEFT SIDE -->
+    <div>
 
-            <button type="submit">Analyze Now</button>
-        </form>
-
-        <div id="loading" class="loading hidden">Analyzing resume...</div>
-    </div>
-
-    <!-- Right Side Results -->
-    <div class="glass-card result-card">
-    <h2>Analysis Result</h2>
-    <div id="resultArea">
-        <p class="placeholder-text">Your analysis results will appear here.</p>
-    </div>
-
-    <canvas id="skillsChart" style="margin-top: 30px;"></canvas>
-</div>
-
-
-        <div id="chartSection" class="hidden">
-            <canvas id="skillsChart"></canvas>
-            <canvas id="wordChart" style="margin-top:30px;"></canvas>
+        <!-- Application Recommendation -->
+        <div id="applicationAdviceCard" class="glass-card" style="display:none; margin-bottom: 20px;">
+            <h2>Application Recommendation</h2>
+            <p><strong>Status:</strong> <span id="applicationStatus"></span></p>
+            <p><strong>ATS Readiness:</strong> <span id="atsReadiness"></span></p>
+            <p id="applicationMessage"></p>
         </div>
+
+        <!-- Form Panel -->
+        <div class="glass-card form-panel">
+            <h2>Analyze Resume</h2>
+
+            <form id="analyzeForm" enctype="multipart/form-data">
+
+                <!-- Drag & Drop Upload -->
+                <label>Upload Resume (PDF)</label>
+
+                <div class="drop-zone" id="dropZone">
+                    <p>Drag & Drop your Resume here 📄</p>
+                    <span>or</span>
+                    <label for="resumeInput" class="browse-btn">Browse File</label>
+                    <input type="file" id="resumeInput" name="resume" accept=".pdf" hidden required>
+                </div>
+
+                <!-- File name -->
+                <p id="fileName" class="file-name"></p>
+
+                <!-- Job Description -->
+                <label>Paste Job Description</label>
+                <textarea name="job_description" rows="10"
+                    placeholder="Paste the job description here..." required></textarea>
+
+                <button type="submit">Analyze Now</button>
+            </form>
+
+            <div id="loading" class="loading hidden">Analyzing resume...</div>
+        </div>
+
     </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="glass-card result-card">
+        <h2>Analysis Result</h2>
+
+        <div id="resultArea">
+            <p class="placeholder-text">Your analysis results will appear here.</p>
+        </div>
+
+        <canvas id="skillsChart" style="margin-top: 30px;"></canvas>
+    </div>
+
 </section>
+
 {% endblock %}

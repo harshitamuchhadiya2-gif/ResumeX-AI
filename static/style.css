@@ -716,3 +716,459 @@ button:hover {
     text-align: center;
     color: #cbd5e1;
 }
+
+
+/* Result Area Spacing */
+#resultArea {
+    margin-top: 30px;
+}
+
+/* Common card spacing */
+.result-section,
+.score-box,
+.application-box {
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 18px;
+}
+
+/* Glass card look */
+.glass-card,
+.result-section,
+.score-box,
+.application-box {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Better score card layout */
+.score-box {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* Recommendation box */
+.application-box {
+    border-left: 5px solid #00ffae;
+}
+
+/* Highlight status */
+.status-highlight {
+    color: #00ffae;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* Tag spacing */
+.tags-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Suggestion list spacing */
+.suggestion-list li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+
+.drop-zone {
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    padding: 30px;
+    text-align: center;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 15px;
+}
+
+.drop-zone.dragover {
+    border-color: #00ffae;
+    background: rgba(0, 255, 174, 0.1);
+}
+
+.browse-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #00ffae;
+    color: #000;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.file-name {
+    margin-top: 10px;
+    color: #ccc;
+}
+
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Page Header */
+.page-head {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-head h1 {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.page-head p {
+    color: #cbd5f5;
+}
+
+
+/* =========================
+   GRID LAYOUT
+========================= */
+.analyzer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 25px;
+    padding: 20px;
+}
+
+
+/* =========================
+   GLASS CARD DESIGN
+========================= */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px; /* spacing between cards */
+}
+
+
+/* =========================
+   FORM PANEL
+========================= */
+.form-panel label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.form-panel textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 5px;
+    resize: none;
+    background: rgba(255,255,255,0.08);
+    color: white;
+}
+
+.form-panel button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #00ffae, #00c3ff);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-panel button:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+
+
+/* =========================
+   DRAG & DROP
+========================= */
+.drop-zone {
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    padding: 30px;
+    text-align: center;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 10px;
+}
+
+.drop-zone.dragover {
+    border-color: #00ffae;
+    background: rgba(0, 255, 174, 0.1);
+}
+
+.browse-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #00ffae;
+    color: #000;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.file-name {
+    font-size: 14px;
+    color: #cbd5f5;
+}
+
+
+/* =========================
+   RESULT SECTION
+========================= */
+.result-card {
+    min-height: 500px;
+}
+
+.result-section {
+    margin-top: 20px;
+}
+
+
+/* =========================
+   SCORE BOX
+========================= */
+.score-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.score-ring {
+    font-size: 28px;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00ffae, #00c3ff);
+    color: black;
+}
+
+
+/* =========================
+   TAGS
+========================= */
+.tags-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-pill {
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+}
+
+.tag-pill.success {
+    background: rgba(0,255,174,0.2);
+    color: #00ffae;
+}
+
+.tag-pill.danger {
+    background: rgba(255,0,0,0.2);
+    color: #ff4d4d;
+}
+
+
+/* =========================
+   SUGGESTIONS
+========================= */
+.suggestion-list {
+    padding-left: 20px;
+}
+
+.suggestion-list li {
+    margin-bottom: 6px;
+}
+
+
+/* =========================
+   APPLICATION BOX
+========================= */
+.application-box {
+    border-left: 5px solid #00ffae;
+}
+
+.status-highlight {
+    font-weight: bold;
+}
+
+/* Status Colors */
+.status-green {
+    color: #00ffae;
+}
+
+.status-yellow {
+    color: #facc15;
+}
+
+.status-red {
+    color: #ff4d4d;
+}
+
+
+/* =========================
+   LOADING & ERROR
+========================= */
+.loading {
+    text-align: center;
+    margin-top: 10px;
+    color: #00ffae;
+}
+
+.flash.danger {
+    color: #ff4d4d;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .analyzer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================
+   HISTORY PAGE
+========================= */
+
+/* Container for all history cards */
+.history-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; /* spacing between cards */
+    margin-top: 20px;
+}
+
+
+/* Individual Card */
+.history-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+.history-card:hover {
+    transform: translateY(-5px);
+}
+
+
+/* Card Title */
+.history-card h3 {
+    margin-bottom: 10px;
+}
+
+
+/* Info Text */
+.history-card p {
+    font-size: 14px;
+    color: #cbd5f5;
+    margin: 5px 0;
+}
+
+
+/* Score Badge */
+.history-score {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* Score Colors */
+.score-high {
+    background: rgba(0,255,174,0.2);
+    color: #00ffae;
+}
+
+.score-mid {
+    background: rgba(250,204,21,0.2);
+    color: #facc15;
+}
+
+.score-low {
+    background: rgba(255,77,77,0.2);
+    color: #ff4d4d;
+}
+
+
+/* Download Button */
+.download-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #00ffae, #00c3ff);
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.download-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+
+.score-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 26px;
+    font-weight: 600;
+    color: #e2e8f0; /* soft white */
+}
+
+.score-box {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.score-left {
+    position: relative;
+    width: 160px;
+    height: 160px;
+}
+
+.score-right h3 {
+    font-size: 20px;
+    color: #e2e8f0;
+}
+
+.score-right p {
+    color: #94a3b8;
+}

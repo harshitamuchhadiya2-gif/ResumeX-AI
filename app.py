@@ -16,9 +16,9 @@ from logic import (
     generate_suggestions,
     create_skill_chart_data,
     suggest_job_roles,
-    generate_resume_feedback
+    generate_resume_feedback,
+    get_application_advice
 )
-
 
 app = Flask(__name__)
 app.secret_key = "resumex_secret_key"
@@ -38,6 +38,7 @@ def load_json_file(filename, default_value):
     if not os.path.exists(filename):
         with open(filename, "w", encoding="utf-8") as f:
             json.dump(default_value, f, indent=4)
+
     try:
         with open(filename, "r", encoding="utf-8") as f:
             return json.load(f)
@@ -210,51 +211,61 @@ def analyze():
         if not resume_text:
             return jsonify({"error": "Could not extract text from PDF."}), 400
 
+        # Clean text
         cleaned_resume = clean_text(resume_text)
         cleaned_job = clean_text(job_description)
 
-        match_score = float(calculate_similarity(cleaned_resume, cleaned_job))
-        match_level = get_match_level(match_score)
-
+        # Extract data
         resume_skills = extract_skills(cleaned_resume)
         job_skills = extract_skills(cleaned_job)
         education_list = extract_education(resume_text)
 
+        # Missing skills
         missing_skills = sorted(list(set(job_skills) - set(resume_skills)))
 
+        # Score and advice
+        match_score = float(calculate_similarity(cleaned_resume, cleaned_job, resume_skills, job_skills))
+        match_level = get_match_level(match_score)
+        application_advice = get_application_advice(match_score)
+
+        # Suggestions and recommendations
         suggestions = generate_suggestions(missing_skills, match_score)
         recommended_jobs = suggest_job_roles(resume_skills, education_list)
         ai_feedback = generate_resume_feedback(resume_skills, job_skills, missing_skills, match_score)
 
-
+        # Stats
         resume_word_count = len(cleaned_resume.split())
         job_word_count = len(cleaned_job.split())
         keyword_overlap = len(set(resume_skills) & set(job_skills))
 
+        # Chart
         chart_data = create_skill_chart_data(resume_skills, job_skills, missing_skills)
 
+        # Final result
         result_data = {
-    "id": uuid.uuid4().hex,
-    "email": session.get("user_email"),
-    "name": session.get("user_name", "User"),
-    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-    "filename": filename,
-    "match_score": round(match_score, 2),
-    "match_level": match_level,
-    "education": education_list,
-    "resume_skills": resume_skills,
-    "job_skills": job_skills,
-    "missing_skills": missing_skills,
-    "suggestions": suggestions,
-    "recommended_jobs": recommended_jobs,
-    "ai_feedback": ai_feedback,
-    "resume_word_count": resume_word_count,
-    "job_word_count": job_word_count,
-    "keyword_overlap": keyword_overlap,
-    "chart_data": chart_data
-}
+            "id": uuid.uuid4().hex,
+            "email": session.get("user_email"),
+            "name": session.get("user_name", "User"),
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "filename": filename,
+            "match_score": round(match_score, 2),
+            "match_level": match_level,
+            "application_status": application_advice["status"],
+            "application_message": application_advice["message"],
+            "education_list": education_list,
+            "resume_skills": resume_skills,
+            "job_skills": job_skills,
+            "missing_skills": missing_skills,
+            "suggestions": suggestions,
+            "recommended_jobs": recommended_jobs,
+            "ai_feedback": ai_feedback,
+            "resume_word_count": resume_word_count,
+            "job_word_count": job_word_count,
+            "keyword_overlap": keyword_overlap,
+            "chart_data": chart_data
+        }
 
-
+        # Save history
         history = load_history()
         history.append(result_data)
         save_history(history)
@@ -275,18 +286,17 @@ def download_report(report_id):
     history = load_history()
     user_email = session.get("user_email")
 
-    # Get only current user's reports
     user_reports = [item for item in history if item.get("email") == user_email]
 
     report = None
 
-    # 1. Try finding by unique ID (new reports)
+    # Find by unique ID
     for item in user_reports:
         if item.get("id") == report_id:
             report = item
             break
 
-    # 2. If not found, try using index (old reports)
+    # Fallback: old index-based reports
     if not report and report_id.isdigit():
         report_index = int(report_id)
         if 0 <= report_index < len(user_reports):
@@ -307,6 +317,13 @@ Resume File: {report.get('filename', 'N/A')}
 
 Match Score: {report.get('match_score', 0)}%
 Match Level: {report.get('match_level', 'N/A')}
+
+Application Recommendation:
+Status: {report.get('application_status', 'N/A')}
+Message: {report.get('application_message', 'N/A')}
+
+Detected Education:
+{', '.join(report.get('education_list', []))}
 
 Resume Skills:
 {', '.join(report.get('resume_skills', []))}

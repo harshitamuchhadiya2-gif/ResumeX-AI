@@ -5,6 +5,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from skills import skills_list
 
+# -------------------------------
+# Stop words
+# -------------------------------
 STOP_WORDS = {
     "the", "is", "in", "and", "to", "of", "a", "for", "on", "with",
     "as", "by", "an", "be", "this", "that", "it", "from", "or", "at"
@@ -60,19 +63,38 @@ def extract_skills(text):
 def extract_education(text):
     text = text.lower()
 
-    education_keywords = [
-        "bca", "mca", "b.tech", "btech", "m.tech", "mtech",
-        "b.sc", "bsc", "m.sc", "msc", "b.com", "bcom", "m.com", "mcom",
-        "bba", "mba", "ba", "ma", "diploma", "computer science",
-        "information technology", "it", "engineering"
-    ]
+    education_map = {
+        "bca": "BCA",
+        "mca": "MCA",
+        "b.tech": "B.Tech",
+        "btech": "B.Tech",
+        "m.tech": "M.Tech",
+        "mtech": "M.Tech",
+        "b.sc": "BSc",
+        "bsc": "BSc",
+        "m.sc": "MSc",
+        "msc": "MSc",
+        "b.com": "BCom",
+        "bcom": "BCom",
+        "m.com": "MCom",
+        "mcom": "MCom",
+        "bba": "BBA",
+        "mba": "MBA",
+        "ba": "BA",
+        "ma": "MA",
+        "diploma": "Diploma",
+        "computer science": "Computer Science",
+        "information technology": "Information Technology",
+        "it": "IT",
+        "engineering": "Engineering"
+    }
 
     found_education = set()
 
-    for edu in education_keywords:
-        pattern = r'\b' + re.escape(edu.lower()) + r'\b'
+    for keyword, display_name in education_map.items():
+        pattern = r'\b' + re.escape(keyword.lower()) + r'\b'
         if re.search(pattern, text):
-            found_education.add(edu.upper())
+            found_education.add(display_name)
 
     return sorted(list(found_education))
 
@@ -80,26 +102,130 @@ def extract_education(text):
 # -------------------------------
 # Calculate similarity
 # -------------------------------
-def calculate_similarity(resume_text, job_text):
+# -------------------------------
+# Professional ATS Match Score
+# -------------------------------
+def calculate_similarity(resume_text, job_text, resume_skills=None, job_skills=None):
+    # ---------------------------
+    # 1. Text similarity (25%)
+    # ---------------------------
     documents = [resume_text, job_text]
     tfidf = TfidfVectorizer()
     tfidf_matrix = tfidf.fit_transform(documents)
-    similarity = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])
-    return round(similarity[0][0] * 100, 2)
+    text_score = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])[0][0] * 100
+
+    # ---------------------------
+    # 2. Skill match score (50%)
+    # ---------------------------
+    skill_score = 0
+    if resume_skills is not None and job_skills is not None and len(job_skills) > 0:
+        matched = len(set(resume_skills) & set(job_skills))
+        skill_score = (matched / len(job_skills)) * 100
+
+    # ---------------------------
+    # 3. Resume quality score (15%)
+    # ---------------------------
+    quality_score = 0
+    word_count = len(resume_text.split())
+
+    if word_count >= 250:
+        quality_score += 40
+    elif word_count >= 150:
+        quality_score += 25
+    else:
+        quality_score += 10
+
+    if len(resume_skills) >= 8:
+        quality_score += 30
+    elif len(resume_skills) >= 5:
+        quality_score += 20
+    else:
+        quality_score += 10
+
+    # Check for project/experience keywords
+    quality_keywords = ["project", "experience", "internship", "certification", "developed", "implemented"]
+    keyword_hits = sum(1 for kw in quality_keywords if kw in resume_text.lower())
+    quality_score += min(keyword_hits * 5, 30)
+
+    # Max cap
+    quality_score = min(quality_score, 100)
+
+    # ---------------------------
+    # 4. Final weighted score
+    # ---------------------------
+    final_score = (
+        (0.25 * text_score) +
+        (0.50 * skill_score) +
+        (0.25 * quality_score)
+    )
+
+    # ---------------------------
+    # Professional score adjustment
+    # ---------------------------
+    # Prevent unrealistically low score if skills are somewhat matched
+    if skill_score >= 40 and final_score < 50:
+        final_score += 12
+
+    if skill_score >= 60 and final_score < 65:
+        final_score += 10
+
+    if skill_score == 100 and final_score < 80:
+        final_score = 82
+
+    return round(min(final_score, 100), 2)
 
 
 # -------------------------------
 # Match level
 # -------------------------------
+# -------------------------------
+# Match level
+# -------------------------------
 def get_match_level(score):
-    if score >= 80:
+    if score >= 85:
         return "Excellent Match"
-    elif score >= 60:
+    elif score >= 70:
         return "Good Match"
-    elif score >= 40:
+    elif score >= 55:
         return "Moderate Match"
+    elif score >= 40:
+        return "Needs Improvement"
     else:
         return "Low Match"
+
+
+# -------------------------------
+# Application Recommendation
+# -------------------------------
+# -------------------------------
+# Application Recommendation
+# -------------------------------
+# -------------------------------
+# Application Recommendation
+# -------------------------------
+def get_application_advice(score):
+    if score >= 85:
+        return {
+            "status": "Highly Recommended",
+            "message": "Your resume is strongly aligned with this job role. You can confidently apply for this position.",
+            "ats_readiness": "High",
+            "highlight": "Your resume appears ATS-ready for this role."
+        }
+    elif score >= 50:
+        return {
+            "status": "Can Apply with Improvements",
+            "message": "Your resume has a fair match with this job role. You can apply, but improving some missing skills and keywords will increase your chances.",
+            "ats_readiness": "Moderate",
+            "highlight": "Adding missing skills can significantly improve your chances."
+        }
+    else:
+        return {
+            "status": "Needs Significant Improvement",
+            "message": "Your resume is not strongly aligned with this job role. It is better to improve your resume before applying.",
+            "ats_readiness": "Low",
+            "highlight": "You should improve your resume keywords, skills, and project descriptions before applying."
+        }
+
 
 
 # -------------------------------
@@ -163,14 +289,11 @@ def suggest_job_roles(resume_skills, education_list=None):
     education_map = {
         "BCA": ["Junior Software Developer", "Web Developer", "IT Support Executive", "QA Tester"],
         "MCA": ["Software Engineer", "Backend Developer", "Application Developer"],
-        "BTECH": ["Software Engineer", "System Engineer", "Developer"],
-        "B.TECH": ["Software Engineer", "System Engineer", "Developer"],
-        "BSC": ["Data Analyst", "Lab Analyst", "IT Support"],
-        "B.SC": ["Data Analyst", "Lab Analyst", "IT Support"],
+        "B.Tech": ["Software Engineer", "System Engineer", "Developer"],
+        "BSc": ["Data Analyst", "Lab Analyst", "IT Support"],
         "BBA": ["Business Analyst", "Sales Executive", "HR Executive"],
         "MBA": ["Project Manager", "Business Analyst", "Operations Executive"],
-        "BCOM": ["Accountant", "MIS Executive", "Finance Analyst"],
-        "B.COM": ["Accountant", "Finance Assistant", "Office Executive"]
+        "BCom": ["Accountant", "MIS Executive", "Finance Analyst"]
     }
 
     # Suggest based on skills
@@ -182,9 +305,8 @@ def suggest_job_roles(resume_skills, education_list=None):
 
     # Suggest based on education
     for edu in education_list:
-        edu_clean = edu.upper().replace(" ", "")
-        if edu_clean in education_map:
-            for role in education_map[edu_clean]:
+        if edu in education_map:
+            for role in education_map[edu]:
                 recommended.add(role)
 
     if not recommended:

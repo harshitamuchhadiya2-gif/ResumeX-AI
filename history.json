@@ -653,5 +653,1497 @@
                 1
             ]
         }
+    },
+    {
+        "id": "c9114acf8d384a1383d4dcb74e83a9ad",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "harshita",
+        "timestamp": "2026-04-03 14:27:04",
+        "filename": "resume_sample_student.pdf",
+        "match_score": 6.13,
+        "match_level": "Low Match",
+        "education": [
+            "IT"
+        ],
+        "resume_skills": [
+            "Communication",
+            "Leadership"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "suggestions": [
+            "Add more job-relevant keywords to your resume.",
+            "Tailor your resume specifically for this job role.",
+            "Include measurable achievements and project outcomes.",
+            "Consider adding or improving: JavaScript",
+            "Consider adding or improving: MySQL",
+            "Consider adding or improving: Problem Solving",
+            "Consider adding or improving: Python"
+        ],
+        "recommended_jobs": [
+            "Business Analyst",
+            "Customer Support Executive",
+            "HR Executive"
+        ],
+        "ai_feedback": [
+            "Your resume has a low match with this job. Consider tailoring it specifically for this role.",
+            "Add these important missing skills if you have them: JavaScript, MySQL, Problem Solving, Python.",
+            "Your resume appears to list very few skills. Add more technical and professional skills relevant to your field.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 556,
+        "job_word_count": 114,
+        "keyword_overlap": 1,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                2,
+                5,
+                4
+            ]
+        }
+    },
+    {
+        "id": "a3b64d444cea4e189100afe924ad9895",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "harshita",
+        "timestamp": "2026-04-04 10:42:05",
+        "filename": "harshita_resume_3.pdf",
+        "match_score": 9.24,
+        "match_level": "Low Match",
+        "education": [
+            "BCA"
+        ],
+        "resume_skills": [
+            "CSS",
+            "Communication",
+            "Django",
+            "HTML",
+            "JavaScript",
+            "MySQL",
+            "Python",
+            "React"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "Problem Solving"
+        ],
+        "suggestions": [
+            "Add more job-relevant keywords to your resume.",
+            "Tailor your resume specifically for this job role.",
+            "Include measurable achievements and project outcomes.",
+            "Consider adding or improving: Problem Solving"
+        ],
+        "recommended_jobs": [
+            "Backend Developer",
+            "Business Analyst",
+            "Customer Support Executive",
+            "Django Developer",
+            "Frontend Developer",
+            "HR Executive",
+            "IT Support Executive",
+            "Junior Software Developer",
+            "Python Developer",
+            "QA Tester",
+            "React Developer",
+            "Software Developer",
+            "UI Developer",
+            "Web Designer",
+            "Web Developer"
+        ],
+        "ai_feedback": [
+            "Your resume has a low match with this job. Consider tailoring it specifically for this role.",
+            "Add these important missing skills if you have them: Problem Solving.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 191,
+        "job_word_count": 114,
+        "keyword_overlap": 4,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                8,
+                5,
+                1
+            ]
+        }
+    },
+    {
+        "id": "a1fc8dd254ea4bf8a55cd7b5e29b58d4",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "harshita",
+        "timestamp": "2026-04-09 09:24:27",
+        "filename": "harshita_resume_3.pdf",
+        "match_score": 9.24,
+        "match_level": "Low Match",
+        "education": [
+            "BCA"
+        ],
+        "resume_skills": [
+            "CSS",
+            "Communication",
+            "Django",
+            "HTML",
+            "JavaScript",
+            "MySQL",
+            "Python",
+            "React"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "Problem Solving"
+        ],
+        "suggestions": [
+            "Add more job-relevant keywords to your resume.",
+            "Tailor your resume specifically for this job role.",
+            "Include measurable achievements and project outcomes.",
+            "Consider adding or improving: Problem Solving"
+        ],
+        "recommended_jobs": [
+            "Backend Developer",
+            "Business Analyst",
+            "Customer Support Executive",
+            "Django Developer",
+            "Frontend Developer",
+            "HR Executive",
+            "IT Support Executive",
+            "Junior Software Developer",
+            "Python Developer",
+            "QA Tester",
+            "React Developer",
+            "Software Developer",
+            "UI Developer",
+            "Web Designer",
+            "Web Developer"
+        ],
+        "ai_feedback": [
+            "Your resume has a low match with this job. Consider tailoring it specifically for this role.",
+            "Add these important missing skills if you have them: Problem Solving.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 191,
+        "job_word_count": 114,
+        "keyword_overlap": 4,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                8,
+                5,
+                1
+            ]
+        }
+    },
+    {
+        "id": "7089eefd533449e888e8ed1e51220938",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-09 11:31:22",
+        "filename": "resume_sample_student.pdf",
+        "match_score": 6.45,
+        "match_level": "Low Match",
+        "education": [
+            "IT"
+        ],
+        "resume_skills": [
+            "Communication",
+            "Leadership"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "suggestions": [
+            "Add more job-relevant keywords to your resume.",
+            "Tailor your resume specifically for this job role.",
+            "Include measurable achievements and project outcomes.",
+            "Consider adding or improving: JavaScript",
+            "Consider adding or improving: MySQL",
+            "Consider adding or improving: Problem Solving",
+            "Consider adding or improving: Python"
+        ],
+        "recommended_jobs": [
+            "Business Analyst",
+            "Customer Support Executive",
+            "HR Executive"
+        ],
+        "ai_feedback": [
+            "Your resume has a low match with this job. Consider tailoring it specifically for this role.",
+            "Add these important missing skills if you have them: JavaScript, MySQL, Problem Solving, Python.",
+            "Your resume appears to list very few skills. Add more technical and professional skills relevant to your field.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 556,
+        "job_word_count": 102,
+        "keyword_overlap": 1,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                2,
+                5,
+                4
+            ]
+        }
+    },
+    {
+        "id": "0ac4c6b1ec534d8dba82db01bd6ebec0",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-09 11:35:57",
+        "filename": "resume_sample_student.pdf",
+        "match_score": 15.93,
+        "match_level": "Low Match",
+        "education": [
+            "IT"
+        ],
+        "resume_skills": [
+            "Communication",
+            "Leadership"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "suggestions": [
+            "Add more job-relevant keywords to your resume.",
+            "Tailor your resume specifically for this job role.",
+            "Include measurable achievements and project outcomes.",
+            "Consider adding or improving: JavaScript",
+            "Consider adding or improving: MySQL",
+            "Consider adding or improving: Problem Solving",
+            "Consider adding or improving: Python"
+        ],
+        "recommended_jobs": [
+            "Business Analyst",
+            "Customer Support Executive",
+            "HR Executive"
+        ],
+        "ai_feedback": [
+            "Your resume has a low match with this job. Consider tailoring it specifically for this role.",
+            "Add these important missing skills if you have them: JavaScript, MySQL, Problem Solving, Python.",
+            "Your resume appears to list very few skills. Add more technical and professional skills relevant to your field.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 556,
+        "job_word_count": 102,
+        "keyword_overlap": 1,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                2,
+                5,
+                4
+            ]
+        }
+    },
+    {
+        "id": "76cc582870dc4613b6e8bac956920e27",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-09 11:36:41",
+        "filename": "harshita_resume_3.pdf",
+        "match_score": 58.55,
+        "match_level": "Moderate Match",
+        "education": [
+            "BCA"
+        ],
+        "resume_skills": [
+            "CSS",
+            "Communication",
+            "Django",
+            "HTML",
+            "JavaScript",
+            "MySQL",
+            "Python",
+            "React"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "Problem Solving"
+        ],
+        "suggestions": [
+            "Add more job-relevant keywords to your resume.",
+            "Tailor your resume specifically for this job role.",
+            "Include measurable achievements and project outcomes.",
+            "Consider adding or improving: Problem Solving"
+        ],
+        "recommended_jobs": [
+            "Backend Developer",
+            "Business Analyst",
+            "Customer Support Executive",
+            "Django Developer",
+            "Frontend Developer",
+            "HR Executive",
+            "IT Support Executive",
+            "Junior Software Developer",
+            "Python Developer",
+            "QA Tester",
+            "React Developer",
+            "Software Developer",
+            "UI Developer",
+            "Web Designer",
+            "Web Developer"
+        ],
+        "ai_feedback": [
+            "Your resume has a moderate match. A few targeted improvements can significantly increase your chances.",
+            "Add these important missing skills if you have them: Problem Solving.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 191,
+        "job_word_count": 102,
+        "keyword_overlap": 4,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                8,
+                5,
+                1
+            ]
+        }
+    },
+    {
+        "id": "6a13485f81ca433d84e65a35920553c6",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-09 11:47:26",
+        "filename": "harshita_resume_3.pdf",
+        "match_score": 58.55,
+        "match_level": "Moderate Match",
+        "education": [
+            "BCA"
+        ],
+        "resume_skills": [
+            "CSS",
+            "Communication",
+            "Django",
+            "HTML",
+            "JavaScript",
+            "MySQL",
+            "Python",
+            "React"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "Problem Solving"
+        ],
+        "suggestions": [
+            "Add more job-relevant keywords to your resume.",
+            "Tailor your resume specifically for this job role.",
+            "Include measurable achievements and project outcomes.",
+            "Consider adding or improving: Problem Solving"
+        ],
+        "recommended_jobs": [
+            "Backend Developer",
+            "Business Analyst",
+            "Customer Support Executive",
+            "Django Developer",
+            "Frontend Developer",
+            "HR Executive",
+            "IT Support Executive",
+            "Junior Software Developer",
+            "Python Developer",
+            "QA Tester",
+            "React Developer",
+            "Software Developer",
+            "UI Developer",
+            "Web Designer",
+            "Web Developer"
+        ],
+        "ai_feedback": [
+            "Your resume has a moderate match. A few targeted improvements can significantly increase your chances.",
+            "Add these important missing skills if you have them: Problem Solving.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 191,
+        "job_word_count": 102,
+        "keyword_overlap": 4,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                8,
+                5,
+                1
+            ]
+        }
+    },
+    {
+        "id": "62bb61831a5e449f99f362238871895a",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-09 12:10:17",
+        "filename": "harshita_resume_3.pdf",
+        "match_score": 48.23,
+        "match_level": "Low Match",
+        "education": [
+            "BCA"
+        ],
+        "resume_skills": [
+            "CSS",
+            "Communication",
+            "Django",
+            "HTML",
+            "JavaScript",
+            "MySQL",
+            "Python",
+            "React"
+        ],
+        "job_skills": [
+            "C",
+            "HTML",
+            "Java",
+            "JavaScript",
+            "MySQL"
+        ],
+        "missing_skills": [
+            "C",
+            "Java"
+        ],
+        "suggestions": [
+            "Add more job-relevant keywords to your resume.",
+            "Tailor your resume specifically for this job role.",
+            "Include measurable achievements and project outcomes.",
+            "Consider adding or improving: C",
+            "Consider adding or improving: Java"
+        ],
+        "recommended_jobs": [
+            "Backend Developer",
+            "Business Analyst",
+            "Customer Support Executive",
+            "Django Developer",
+            "Frontend Developer",
+            "HR Executive",
+            "IT Support Executive",
+            "Junior Software Developer",
+            "Python Developer",
+            "QA Tester",
+            "React Developer",
+            "Software Developer",
+            "UI Developer",
+            "Web Designer",
+            "Web Developer"
+        ],
+        "ai_feedback": [
+            "Your resume has a low match with this job. Consider tailoring it specifically for this role.",
+            "Add these important missing skills if you have them: C, Java.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 191,
+        "job_word_count": 91,
+        "keyword_overlap": 3,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                8,
+                5,
+                2
+            ]
+        }
+    },
+    {
+        "id": "4d231cb52bf84454aa24dffc265908ab",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-09 22:45:47",
+        "filename": "harshita_resume_3.pdf",
+        "match_score": 58.55,
+        "match_level": "Average Match",
+        "application_status": "Can Apply, But Needs Improvement",
+        "application_message": "Your resume has a moderate match with this job. You may apply, but it is recommended to improve your resume before applying.",
+        "education_list": [
+            "BCA"
+        ],
+        "resume_skills": [
+            "CSS",
+            "Communication",
+            "Django",
+            "HTML",
+            "JavaScript",
+            "MySQL",
+            "Python",
+            "React"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "Problem Solving"
+        ],
+        "suggestions": [
+            "Add more job-relevant keywords to your resume.",
+            "Tailor your resume specifically for this job role.",
+            "Include measurable achievements and project outcomes.",
+            "Consider adding or improving: Problem Solving"
+        ],
+        "recommended_jobs": [
+            "Backend Developer",
+            "Business Analyst",
+            "Customer Support Executive",
+            "Django Developer",
+            "Frontend Developer",
+            "HR Executive",
+            "IT Support Executive",
+            "Junior Software Developer",
+            "Python Developer",
+            "QA Tester",
+            "React Developer",
+            "Software Developer",
+            "UI Developer",
+            "Web Designer",
+            "Web Developer"
+        ],
+        "ai_feedback": [
+            "Your resume has a moderate match. A few targeted improvements can significantly increase your chances.",
+            "Add these important missing skills if you have them: Problem Solving.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 191,
+        "job_word_count": 102,
+        "keyword_overlap": 4,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                8,
+                5,
+                1
+            ]
+        }
+    },
+    {
+        "id": "eb4f5e09488341bbb944f16167038f74",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-09 22:50:59",
+        "filename": "harshita_resume_3.pdf",
+        "match_score": 67.13,
+        "match_level": "Moderate Match",
+        "application_status": "Moderately Recommended",
+        "application_message": "Your resume has a fair match with this job role. You can apply, but improving a few skills and keywords will increase your chances.",
+        "education_list": [
+            "BCA"
+        ],
+        "resume_skills": [
+            "CSS",
+            "Communication",
+            "Django",
+            "HTML",
+            "JavaScript",
+            "MySQL",
+            "Python",
+            "React"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "Problem Solving"
+        ],
+        "suggestions": [
+            "Consider adding or improving: Problem Solving"
+        ],
+        "recommended_jobs": [
+            "Backend Developer",
+            "Business Analyst",
+            "Customer Support Executive",
+            "Django Developer",
+            "Frontend Developer",
+            "HR Executive",
+            "IT Support Executive",
+            "Junior Software Developer",
+            "Python Developer",
+            "QA Tester",
+            "React Developer",
+            "Software Developer",
+            "UI Developer",
+            "Web Designer",
+            "Web Developer"
+        ],
+        "ai_feedback": [
+            "Your resume has a moderate match. A few targeted improvements can significantly increase your chances.",
+            "Add these important missing skills if you have them: Problem Solving.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 191,
+        "job_word_count": 102,
+        "keyword_overlap": 4,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                8,
+                5,
+                1
+            ]
+        }
+    },
+    {
+        "id": "1dc4bff07c474f49b36e0b1327b39dc5",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-09 22:54:25",
+        "filename": "resume_sample_student.pdf",
+        "match_score": 26.61,
+        "match_level": "Low Match",
+        "application_status": "Needs Significant Improvement",
+        "application_message": "Your resume is not strongly aligned with this job role. It is better to improve your resume before applying.",
+        "education_list": [
+            "IT"
+        ],
+        "resume_skills": [
+            "Communication",
+            "Leadership"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "suggestions": [
+            "Add more job-relevant keywords to your resume.",
+            "Tailor your resume specifically for this job role.",
+            "Include measurable achievements and project outcomes.",
+            "Consider adding or improving: JavaScript",
+            "Consider adding or improving: MySQL",
+            "Consider adding or improving: Problem Solving",
+            "Consider adding or improving: Python"
+        ],
+        "recommended_jobs": [
+            "Business Analyst",
+            "Customer Support Executive",
+            "HR Executive"
+        ],
+        "ai_feedback": [
+            "Your resume has a low match with this job. Consider tailoring it specifically for this role.",
+            "Add these important missing skills if you have them: JavaScript, MySQL, Problem Solving, Python.",
+            "Your resume appears to list very few skills. Add more technical and professional skills relevant to your field.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 556,
+        "job_word_count": 102,
+        "keyword_overlap": 1,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                2,
+                5,
+                4
+            ]
+        }
+    },
+    {
+        "id": "6dec526ea0c24e5d9d34cc20e4912348",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-09 22:54:41",
+        "filename": "harshita_resume_3.pdf",
+        "match_score": 67.13,
+        "match_level": "Moderate Match",
+        "application_status": "Can Apply with Improvements",
+        "application_message": "Your resume has a fair match with this job role. You can apply, but improving some missing skills and keywords will increase your chances.",
+        "education_list": [
+            "BCA"
+        ],
+        "resume_skills": [
+            "CSS",
+            "Communication",
+            "Django",
+            "HTML",
+            "JavaScript",
+            "MySQL",
+            "Python",
+            "React"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "Problem Solving"
+        ],
+        "suggestions": [
+            "Consider adding or improving: Problem Solving"
+        ],
+        "recommended_jobs": [
+            "Backend Developer",
+            "Business Analyst",
+            "Customer Support Executive",
+            "Django Developer",
+            "Frontend Developer",
+            "HR Executive",
+            "IT Support Executive",
+            "Junior Software Developer",
+            "Python Developer",
+            "QA Tester",
+            "React Developer",
+            "Software Developer",
+            "UI Developer",
+            "Web Designer",
+            "Web Developer"
+        ],
+        "ai_feedback": [
+            "Your resume has a moderate match. A few targeted improvements can significantly increase your chances.",
+            "Add these important missing skills if you have them: Problem Solving.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 191,
+        "job_word_count": 102,
+        "keyword_overlap": 4,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                8,
+                5,
+                1
+            ]
+        }
+    },
+    {
+        "id": "f9ad345173d34861af28eaea1d90b072",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-11 10:07:08",
+        "filename": "harshita_resume_3.pdf",
+        "match_score": 67.13,
+        "match_level": "Moderate Match",
+        "application_status": "Can Apply with Improvements",
+        "application_message": "Your resume has a fair match with this job role. You can apply, but improving some missing skills and keywords will increase your chances.",
+        "education_list": [
+            "BCA"
+        ],
+        "resume_skills": [
+            "CSS",
+            "Communication",
+            "Django",
+            "HTML",
+            "JavaScript",
+            "MySQL",
+            "Python",
+            "React"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "Problem Solving"
+        ],
+        "suggestions": [
+            "Consider adding or improving: Problem Solving"
+        ],
+        "recommended_jobs": [
+            "Backend Developer",
+            "Business Analyst",
+            "Customer Support Executive",
+            "Django Developer",
+            "Frontend Developer",
+            "HR Executive",
+            "IT Support Executive",
+            "Junior Software Developer",
+            "Python Developer",
+            "QA Tester",
+            "React Developer",
+            "Software Developer",
+            "UI Developer",
+            "Web Designer",
+            "Web Developer"
+        ],
+        "ai_feedback": [
+            "Your resume has a moderate match. A few targeted improvements can significantly increase your chances.",
+            "Add these important missing skills if you have them: Problem Solving.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 191,
+        "job_word_count": 102,
+        "keyword_overlap": 4,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                8,
+                5,
+                1
+            ]
+        }
+    },
+    {
+        "id": "8e763cf911a74bfc98d0cad00ca00035",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-12 18:26:48",
+        "filename": "harshita_resume_3.pdf",
+        "match_score": 67.13,
+        "match_level": "Moderate Match",
+        "application_status": "Can Apply with Improvements",
+        "application_message": "Your resume has a fair match with this job role. You can apply, but improving some missing skills and keywords will increase your chances.",
+        "education_list": [
+            "BCA"
+        ],
+        "resume_skills": [
+            "CSS",
+            "Communication",
+            "Django",
+            "HTML",
+            "JavaScript",
+            "MySQL",
+            "Python",
+            "React"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "Problem Solving"
+        ],
+        "suggestions": [
+            "Consider adding or improving: Problem Solving"
+        ],
+        "recommended_jobs": [
+            "Backend Developer",
+            "Business Analyst",
+            "Customer Support Executive",
+            "Django Developer",
+            "Frontend Developer",
+            "HR Executive",
+            "IT Support Executive",
+            "Junior Software Developer",
+            "Python Developer",
+            "QA Tester",
+            "React Developer",
+            "Software Developer",
+            "UI Developer",
+            "Web Designer",
+            "Web Developer"
+        ],
+        "ai_feedback": [
+            "Your resume has a moderate match. A few targeted improvements can significantly increase your chances.",
+            "Add these important missing skills if you have them: Problem Solving.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 191,
+        "job_word_count": 102,
+        "keyword_overlap": 4,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                8,
+                5,
+                1
+            ]
+        }
+    },
+    {
+        "id": "8f26738fdef64122a191b1cf306d67f5",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-12 18:34:12",
+        "filename": "harshita_resume_3.pdf",
+        "match_score": 67.13,
+        "match_level": "Moderate Match",
+        "application_status": "Can Apply with Improvements",
+        "application_message": "Your resume has a fair match with this job role. You can apply, but improving some missing skills and keywords will increase your chances.",
+        "education_list": [
+            "BCA"
+        ],
+        "resume_skills": [
+            "CSS",
+            "Communication",
+            "Django",
+            "HTML",
+            "JavaScript",
+            "MySQL",
+            "Python",
+            "React"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "Problem Solving"
+        ],
+        "suggestions": [
+            "Consider adding or improving: Problem Solving"
+        ],
+        "recommended_jobs": [
+            "Backend Developer",
+            "Business Analyst",
+            "Customer Support Executive",
+            "Django Developer",
+            "Frontend Developer",
+            "HR Executive",
+            "IT Support Executive",
+            "Junior Software Developer",
+            "Python Developer",
+            "QA Tester",
+            "React Developer",
+            "Software Developer",
+            "UI Developer",
+            "Web Designer",
+            "Web Developer"
+        ],
+        "ai_feedback": [
+            "Your resume has a moderate match. A few targeted improvements can significantly increase your chances.",
+            "Add these important missing skills if you have them: Problem Solving.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 191,
+        "job_word_count": 102,
+        "keyword_overlap": 4,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                8,
+                5,
+                1
+            ]
+        }
+    },
+    {
+        "id": "002bce3abe1048be965647c8ce7f2f3b",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-12 18:36:19",
+        "filename": "harshita_resume_3.pdf",
+        "match_score": 67.13,
+        "match_level": "Moderate Match",
+        "application_status": "Can Apply with Improvements",
+        "application_message": "Your resume has a fair match with this job role. You can apply, but improving some missing skills and keywords will increase your chances.",
+        "education_list": [
+            "BCA"
+        ],
+        "resume_skills": [
+            "CSS",
+            "Communication",
+            "Django",
+            "HTML",
+            "JavaScript",
+            "MySQL",
+            "Python",
+            "React"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "Problem Solving"
+        ],
+        "suggestions": [
+            "Consider adding or improving: Problem Solving"
+        ],
+        "recommended_jobs": [
+            "Backend Developer",
+            "Business Analyst",
+            "Customer Support Executive",
+            "Django Developer",
+            "Frontend Developer",
+            "HR Executive",
+            "IT Support Executive",
+            "Junior Software Developer",
+            "Python Developer",
+            "QA Tester",
+            "React Developer",
+            "Software Developer",
+            "UI Developer",
+            "Web Designer",
+            "Web Developer"
+        ],
+        "ai_feedback": [
+            "Your resume has a moderate match. A few targeted improvements can significantly increase your chances.",
+            "Add these important missing skills if you have them: Problem Solving.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 191,
+        "job_word_count": 102,
+        "keyword_overlap": 4,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                8,
+                5,
+                1
+            ]
+        }
+    },
+    {
+        "id": "9556a93c8a4441d8a9c68e8442e36006",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-12 18:36:57",
+        "filename": "harshita_resume_3.pdf",
+        "match_score": 67.13,
+        "match_level": "Moderate Match",
+        "application_status": "Can Apply with Improvements",
+        "application_message": "Your resume has a fair match with this job role. You can apply, but improving some missing skills and keywords will increase your chances.",
+        "education_list": [
+            "BCA"
+        ],
+        "resume_skills": [
+            "CSS",
+            "Communication",
+            "Django",
+            "HTML",
+            "JavaScript",
+            "MySQL",
+            "Python",
+            "React"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "Problem Solving"
+        ],
+        "suggestions": [
+            "Consider adding or improving: Problem Solving"
+        ],
+        "recommended_jobs": [
+            "Backend Developer",
+            "Business Analyst",
+            "Customer Support Executive",
+            "Django Developer",
+            "Frontend Developer",
+            "HR Executive",
+            "IT Support Executive",
+            "Junior Software Developer",
+            "Python Developer",
+            "QA Tester",
+            "React Developer",
+            "Software Developer",
+            "UI Developer",
+            "Web Designer",
+            "Web Developer"
+        ],
+        "ai_feedback": [
+            "Your resume has a moderate match. A few targeted improvements can significantly increase your chances.",
+            "Add these important missing skills if you have them: Problem Solving.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 191,
+        "job_word_count": 102,
+        "keyword_overlap": 4,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                8,
+                5,
+                1
+            ]
+        }
+    },
+    {
+        "id": "778aa40178bc4ecd913e8ddb6b7c0bde",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-12 18:37:35",
+        "filename": "harshita_resume_3.pdf",
+        "match_score": 67.13,
+        "match_level": "Moderate Match",
+        "application_status": "Can Apply with Improvements",
+        "application_message": "Your resume has a fair match with this job role. You can apply, but improving some missing skills and keywords will increase your chances.",
+        "education_list": [
+            "BCA"
+        ],
+        "resume_skills": [
+            "CSS",
+            "Communication",
+            "Django",
+            "HTML",
+            "JavaScript",
+            "MySQL",
+            "Python",
+            "React"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "Problem Solving"
+        ],
+        "suggestions": [
+            "Consider adding or improving: Problem Solving"
+        ],
+        "recommended_jobs": [
+            "Backend Developer",
+            "Business Analyst",
+            "Customer Support Executive",
+            "Django Developer",
+            "Frontend Developer",
+            "HR Executive",
+            "IT Support Executive",
+            "Junior Software Developer",
+            "Python Developer",
+            "QA Tester",
+            "React Developer",
+            "Software Developer",
+            "UI Developer",
+            "Web Designer",
+            "Web Developer"
+        ],
+        "ai_feedback": [
+            "Your resume has a moderate match. A few targeted improvements can significantly increase your chances.",
+            "Add these important missing skills if you have them: Problem Solving.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 191,
+        "job_word_count": 102,
+        "keyword_overlap": 4,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                8,
+                5,
+                1
+            ]
+        }
+    },
+    {
+        "id": "f6245a3cf6a4407ab7a1697e4aee060e",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-12 18:41:21",
+        "filename": "harshita_resume_3.pdf",
+        "match_score": 67.13,
+        "match_level": "Moderate Match",
+        "application_status": "Can Apply with Improvements",
+        "application_message": "Your resume has a fair match with this job role. You can apply, but improving some missing skills and keywords will increase your chances.",
+        "education_list": [
+            "BCA"
+        ],
+        "resume_skills": [
+            "CSS",
+            "Communication",
+            "Django",
+            "HTML",
+            "JavaScript",
+            "MySQL",
+            "Python",
+            "React"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "Problem Solving"
+        ],
+        "suggestions": [
+            "Consider adding or improving: Problem Solving"
+        ],
+        "recommended_jobs": [
+            "Backend Developer",
+            "Business Analyst",
+            "Customer Support Executive",
+            "Django Developer",
+            "Frontend Developer",
+            "HR Executive",
+            "IT Support Executive",
+            "Junior Software Developer",
+            "Python Developer",
+            "QA Tester",
+            "React Developer",
+            "Software Developer",
+            "UI Developer",
+            "Web Designer",
+            "Web Developer"
+        ],
+        "ai_feedback": [
+            "Your resume has a moderate match. A few targeted improvements can significantly increase your chances.",
+            "Add these important missing skills if you have them: Problem Solving.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 191,
+        "job_word_count": 102,
+        "keyword_overlap": 4,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                8,
+                5,
+                1
+            ]
+        }
+    },
+    {
+        "id": "f89000a6976e477fb133db160ab969df",
+        "email": "harshitamuchhadiya72@gmail.com",
+        "name": "Harshita Muchhadiya",
+        "timestamp": "2026-04-12 18:41:57",
+        "filename": "harshita_resume_3.pdf",
+        "match_score": 67.13,
+        "match_level": "Moderate Match",
+        "application_status": "Can Apply with Improvements",
+        "application_message": "Your resume has a fair match with this job role. You can apply, but improving some missing skills and keywords will increase your chances.",
+        "education_list": [
+            "BCA"
+        ],
+        "resume_skills": [
+            "CSS",
+            "Communication",
+            "Django",
+            "HTML",
+            "JavaScript",
+            "MySQL",
+            "Python",
+            "React"
+        ],
+        "job_skills": [
+            "Communication",
+            "JavaScript",
+            "MySQL",
+            "Problem Solving",
+            "Python"
+        ],
+        "missing_skills": [
+            "Problem Solving"
+        ],
+        "suggestions": [
+            "Consider adding or improving: Problem Solving"
+        ],
+        "recommended_jobs": [
+            "Backend Developer",
+            "Business Analyst",
+            "Customer Support Executive",
+            "Django Developer",
+            "Frontend Developer",
+            "HR Executive",
+            "IT Support Executive",
+            "Junior Software Developer",
+            "Python Developer",
+            "QA Tester",
+            "React Developer",
+            "Software Developer",
+            "UI Developer",
+            "Web Designer",
+            "Web Developer"
+        ],
+        "ai_feedback": [
+            "Your resume has a moderate match. A few targeted improvements can significantly increase your chances.",
+            "Add these important missing skills if you have them: Problem Solving.",
+            "Use strong action verbs like 'developed', 'built', 'implemented', and 'optimized' in your project descriptions.",
+            "Include measurable achievements such as percentages, project impact, or performance improvements.",
+            "Make sure your resume includes relevant projects, certifications, internships, and tools."
+        ],
+        "resume_word_count": 191,
+        "job_word_count": 102,
+        "keyword_overlap": 4,
+        "chart_data": {
+            "labels": [
+                "Resume Skills",
+                "Job Skills",
+                "Missing Skills"
+            ],
+            "values": [
+                8,
+                5,
+                1
+            ]
+        }
     }
 ]
