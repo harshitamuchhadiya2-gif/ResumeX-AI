@@ -1,25 +1,72 @@
+// ==========================================================================
+// ResumeX Pro — Interactive Frontend Engine & Dashboard Logic
+// ==========================================================================
+
 const analyzeForm = document.getElementById("analyzeForm");
 const resultArea = document.getElementById("resultArea");
+const resultPlaceholder = document.getElementById("resultPlaceholder");
+const chartContainer = document.getElementById("chartContainer");
 const chartCanvas = document.getElementById("skillsChart");
 
 const dropZone = document.getElementById("dropZone");
 const fileInput = document.getElementById("resumeInput");
-const fileNameDisplay = document.getElementById("fileName");
+const fileInfoBox = document.getElementById("fileInfoBox");
+const fileNameText = document.getElementById("fileNameText");
+const fileSizeText = document.getElementById("fileSizeText");
+const removeFileBtn = document.getElementById("removeFileBtn");
+
+const submitBtn = document.getElementById("analyzeSubmitBtn");
+const jobDescriptionInput = document.getElementById("jobDescriptionInput");
 
 let skillsChart = null;
-let pieChart = null;
 
+// --------------------------------------------------------------------------
+// Quick Job Role Presets
+// --------------------------------------------------------------------------
+const jobPresets = {
+    python: `Looking for a Python Backend Developer with strong experience in Python (Core & OOP), Django, Flask, and RESTful APIs. Experience with MySQL or PostgreSQL database design, query optimization, and Git version control. Knowledge of caching, Docker, and Linux environments is a plus.`,
+    fullstack: `Hiring a Full-Stack Engineer proficient in React.js, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, and Python (Flask or Django). Candidate should be comfortable with REST APIs, component-based architectures, responsive web design, and Git workflow.`,
+    ml: `Seeking a Junior Machine Learning / AI Engineer with solid Python programming, Scikit-learn, Pandas, NumPy, and Natural Language Processing (NLP) fundamentals including TF-IDF, text preprocessing, and predictive model evaluation metrics.`
+};
 
-// -----------------------------
-// Drag & Drop
-// -----------------------------
-if (dropZone) {
+function fillJobPreset(type) {
+    if (jobDescriptionInput && jobPresets[type]) {
+        jobDescriptionInput.value = jobPresets[type];
+        jobDescriptionInput.focus();
+    }
+}
 
+// --------------------------------------------------------------------------
+// Drag & Drop File Upload Handling
+// --------------------------------------------------------------------------
+function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+}
+
+function updateFileDisplay(file) {
+    if (file) {
+        if (file.type !== "application/pdf" && !file.name.endsWith(".pdf")) {
+            alert("Only PDF files are supported!");
+            fileInput.value = "";
+            return;
+        }
+        fileNameText.textContent = file.name;
+        fileSizeText.textContent = formatFileSize(file.size);
+        fileInfoBox.style.display = "flex";
+        dropZone.style.display = "none";
+    }
+}
+
+if (dropZone && fileInput) {
     dropZone.addEventListener("click", () => fileInput.click());
 
     fileInput.addEventListener("change", () => {
         if (fileInput.files.length > 0) {
-            fileNameDisplay.textContent = "Selected: " + fileInput.files[0].name;
+            updateFileDisplay(fileInput.files[0]);
         }
     });
 
@@ -37,40 +84,61 @@ if (dropZone) {
         dropZone.classList.remove("dragover");
 
         const files = e.dataTransfer.files;
-
         if (files.length > 0) {
-            if (files[0].type !== "application/pdf") {
-                alert("Only PDF files are allowed!");
-                return;
-            }
-
             fileInput.files = files;
-            fileNameDisplay.textContent = "Selected: " + files[0].name;
+            updateFileDisplay(files[0]);
         }
     });
 }
 
-
-// -----------------------------
-// Status Color Logic
-// -----------------------------
-function getStatusClass(score) {
-    if (score >= 85) return "status-green";
-    if (score >= 50) return "status-yellow";
-    return "status-red";
+if (removeFileBtn) {
+    removeFileBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        fileInput.value = "";
+        fileInfoBox.style.display = "none";
+        dropZone.style.display = "block";
+    });
 }
 
+// --------------------------------------------------------------------------
+// Status Color Helper
+// --------------------------------------------------------------------------
+function getScoreBadge(score) {
+    if (score >= 85) return { class: "pill-success", text: "Strong Match", icon: "fa-circle-check" };
+    if (score >= 50) return { class: "pill-warning", text: "Potential Match", icon: "fa-triangle-exclamation" };
+    return { class: "pill-danger", text: "Needs Optimization", icon: "fa-circle-xmark" };
+}
 
-// -----------------------------
-// Submit Form
-// -----------------------------
+// --------------------------------------------------------------------------
+// Form Submit & Analysis
+// --------------------------------------------------------------------------
 if (analyzeForm) {
     analyzeForm.addEventListener("submit", async function (e) {
         e.preventDefault();
 
+        if (!fileInput.files || fileInput.files.length === 0) {
+            alert("Please select or drop a PDF resume first!");
+            return;
+        }
+
         const formData = new FormData(analyzeForm);
 
-        resultArea.innerHTML = `<p class="loading">Analyzing resume, please wait...</p>`;
+        // Loading state
+        const btnText = submitBtn.querySelector(".btn-text");
+        const btnSpinner = submitBtn.querySelector(".btn-spinner");
+        submitBtn.disabled = true;
+        btnText.classList.add("hidden");
+        btnSpinner.classList.remove("hidden");
+
+        resultPlaceholder.classList.add("hidden");
+        resultArea.classList.remove("hidden");
+        resultArea.innerHTML = `
+            <div style="text-align: center; padding: 40px 20px;">
+                <i class="fa-solid fa-spinner fa-spin" style="font-size: 36px; color: #38bdf8; margin-bottom: 16px;"></i>
+                <h3 style="color: white; font-size: 17px; margin-bottom: 6px;">Extracting Text & Running NLP Vectorizer...</h3>
+                <p style="color: #94a3b8; font-size: 13px;">Analyzing skill overlap, education, and ATS cosine similarity.</p>
+            </div>
+        `;
 
         try {
             const response = await fetch("/analyze", {
@@ -81,229 +149,186 @@ if (analyzeForm) {
             const data = await response.json();
 
             if (data.error) {
-                resultArea.innerHTML = `<p class="flash danger">${data.error}</p>`;
+                resultArea.innerHTML = `
+                    <div class="flash-toast flash-danger" style="margin: 20px 0;">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <span>${data.error}</span>
+                    </div>
+                `;
                 return;
             }
 
-            // -----------------------------
-            // RESULT UI
-            // -----------------------------
+            const badge = getScoreBadge(data.match_score || 0);
+
+            // ------------------------------------------------------------------
+            // Render Modern Intelligence Dashboard
+            // ------------------------------------------------------------------
             resultArea.innerHTML = `
+                <!-- Main Score & ATS Verdict Card -->
+                <div class="mockup-card" style="margin-bottom: 24px; background: rgba(10, 15, 29, 0.95); border: 1px solid rgba(59, 130, 246, 0.3);">
+                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <div class="score-circle" style="width: 100px; height: 100px;">
+                                <span class="score-value" style="font-size: 26px;">${data.match_score || 0}%</span>
+                                <span class="score-text">ATS MATCH</span>
+                            </div>
+                            <div>
+                                <span class="pill ${badge.class}" style="font-size: 12px; margin-bottom: 6px;">
+                                    <i class="fa-solid ${badge.icon}"></i> ${badge.text}
+                                </span>
+                                <h3 style="color: white; font-size: 18px; margin: 4px 0;">${data.match_level || "Evaluated Match"}</h3>
+                                <p style="color: #94a3b8; font-size: 12.5px;">${data.highlight_message || "Analysis complete against target job requirements."}</p>
+                            </div>
+                        </div>
 
-                <!-- Application Recommendation -->
-                <div class="result-section glass-card application-box">
-                    <h2>Application Recommendation</h2>
-
-                    <p><strong>Status:</strong> 
-                        <span class="status-highlight ${getStatusClass(data.match_score)}">
-                            ${data.application_status || "Not Available"}
-                        </span>
-                    </p>
-
-                    <p><strong>ATS Readiness:</strong> ${data.ats_readiness || "N/A"}</p>
-
-                    <p><strong>Insight:</strong> ${data.highlight_message || ""}</p>
-
-                    <p>${data.application_message || ""}</p>
-
-                    <p><strong>Final Verdict:</strong> ${
-                        data.match_score >= 85 ? "Strong Candidate" :
-                        data.match_score >= 50 ? "Potential Candidate" :
-                        "Needs Improvement"
-                    }</p>
-                </div>
-
-
-                <!-- SCORE WITH DOUGHNUT -->
-                <div class="score-box glass-card">
-
-                    <div class="score-left">
-                        <canvas id="scorePieChart"></canvas>
-                        <div class="score-text">${data.match_score || 0}%</div>
+                        <div>
+                            <a href="/download-report" class="btn btn-primary btn-sm">
+                                <i class="fa-solid fa-download"></i> Download Report
+                            </a>
+                        </div>
                     </div>
 
-                    <div class="score-right">
-                        <h3>${data.match_level || "No Match Level"}</h3>
-                        <p><strong>Keyword Overlap:</strong> ${data.keyword_overlap || 0}</p>
-                        <p><strong>Resume Words:</strong> ${data.resume_word_count || 0}</p>
-                        <p><strong>Job Words:</strong> ${data.job_word_count || 0}</p>
+                    <!-- Key Statistics 4-Pillar Grid -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08);">
+                        <div style="background: rgba(15,23,42,0.8); padding: 10px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase;">Keyword Overlap</div>
+                            <div style="font-size: 18px; font-weight: 800; color: #38bdf8; font-family: var(--font-mono);">${data.keyword_overlap || 0}</div>
+                        </div>
+                        <div style="background: rgba(15,23,42,0.8); padding: 10px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase;">Resume Words</div>
+                            <div style="font-size: 18px; font-weight: 800; color: #a855f7; font-family: var(--font-mono);">${data.resume_word_count || 0}</div>
+                        </div>
+                        <div style="background: rgba(15,23,42,0.8); padding: 10px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase;">Job Words</div>
+                            <div style="font-size: 18px; font-weight: 800; color: #60a5fa; font-family: var(--font-mono);">${data.job_word_count || 0}</div>
+                        </div>
+                        <div style="background: rgba(15,23,42,0.8); padding: 10px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase;">ATS Readiness</div>
+                            <div style="font-size: 14px; font-weight: 700; color: #34d399; margin-top: 3px;">${data.ats_readiness || "Good"}</div>
+                        </div>
                     </div>
-
                 </div>
 
-
-                <!-- Education -->
-                <div class="result-section">
-                    <h3>Detected Education</h3>
-                    <div class="tags-wrap">
+                <!-- Detected Education -->
+                <div style="margin-bottom: 20px;">
+                    <div class="mockup-section-title">
+                        <i class="fa-solid fa-graduation-cap text-primary"></i> Detected Education & Qualifications
+                    </div>
+                    <div class="pill-group">
                         ${
-                            data.education_list?.length
-                                ? data.education_list.map(e => `<span class="tag-pill success">${e}</span>`).join("")
-                                : `<span class="tag-pill">No education detected</span>`
+                            data.education_list && data.education_list.length > 0
+                                ? data.education_list.map(e => `<span class="pill pill-primary"><i class="fa-solid fa-check mr-1"></i> ${e}</span>`).join("")
+                                : `<span class="pill" style="color: #94a3b8;">No standard degree keywords detected</span>`
                         }
                     </div>
                 </div>
 
-
-                <!-- Resume Skills -->
-                <div class="result-section">
-                    <h3>Matched Resume Skills</h3>
-                    <div class="tags-wrap">
+                <!-- Matched Skills -->
+                <div style="margin-bottom: 20px;">
+                    <div class="mockup-section-title">
+                        <i class="fa-solid fa-circle-check text-success"></i> Matched Competencies (${data.resume_skills?.length || 0})
+                    </div>
+                    <div class="pill-group">
                         ${
-                            data.resume_skills?.length
-                                ? data.resume_skills.map(s => `<span class="tag-pill success">${s}</span>`).join("")
-                                : `<span class="tag-pill">No skills found</span>`
+                            data.resume_skills && data.resume_skills.length > 0
+                                ? data.resume_skills.map(s => `<span class="pill pill-success">${s}</span>`).join("")
+                                : `<span class="pill pill-warning">No skills detected in resume</span>`
                         }
                     </div>
                 </div>
-
-
-                <!-- Job Skills -->
-                <div class="result-section">
-                    <h3>Job Required Skills</h3>
-                    <div class="tags-wrap">
-                        ${
-                            data.job_skills?.length
-                                ? data.job_skills.map(s => `<span class="tag-pill">${s}</span>`).join("")
-                                : `<span class="tag-pill">No job skills found</span>`
-                        }
-                    </div>
-                </div>
-
 
                 <!-- Missing Skills -->
-                <div class="result-section">
-                    <h3>Missing Skills</h3>
-                    <div class="tags-wrap">
+                <div style="margin-bottom: 24px;">
+                    <div class="mockup-section-title">
+                        <i class="fa-solid fa-triangle-exclamation text-warning"></i> Missing Skills Gap (${data.missing_skills?.length || 0})
+                    </div>
+                    <div class="pill-group">
                         ${
-                            data.missing_skills?.length
-                                ? data.missing_skills.map(s => `<span class="tag-pill danger">${s}</span>`).join("")
-                                : `<span class="tag-pill success">No major missing skills 🎉</span>`
+                            data.missing_skills && data.missing_skills.length > 0
+                                ? data.missing_skills.map(s => `<span class="pill pill-danger"><i class="fa-solid fa-plus mr-1"></i> ${s}</span>`).join("")
+                                : `<span class="pill pill-success">🎉 No critical skill gaps found!</span>`
                         }
                     </div>
                 </div>
 
-
-                <!-- AI Feedback -->
-                <div class="result-section">
-                    <h3>AI Resume Improvement Suggestions</h3>
-                    <ul class="suggestion-list">
-                        ${
-                            data.ai_feedback?.length
-                                ? data.ai_feedback.map(i => `<li>${i}</li>`).join("")
-                                : `<li>No AI feedback available.</li>`
-                        }
-                    </ul>
-                </div>
-
-
-                <!-- General Suggestions -->
-                <div class="result-section">
-                    <h3>General Suggestions</h3>
-                    <ul class="suggestion-list">
-                        ${
-                            data.suggestions?.length
-                                ? data.suggestions.map(i => `<li>${i}</li>`).join("")
-                                : `<li>No suggestions available.</li>`
-                        }
-                    </ul>
-                </div>
-
-
-                <!-- Recommended Jobs -->
-                <div class="result-section">
-                    <h3>Recommended Job Roles</h3>
-                    <div class="tags-wrap">
-                        ${
-                            data.recommended_jobs?.length
-                                ? data.recommended_jobs.map(j => `<span class="tag-pill success">${j}</span>`).join("")
-                                : `<span class="tag-pill">No recommended jobs found</span>`
-                        }
+                <!-- AI Recommendations Checklist -->
+                <div style="background: rgba(10, 15, 29, 0.7); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 24px;">
+                    <div class="mockup-section-title" style="color: #60a5fa; margin-bottom: 12px;">
+                        <i class="fa-solid fa-lightbulb"></i> Actionable AI Resume Recommendations
                     </div>
+                    <ul class="mockup-checklist" style="font-size: 13px; line-height: 1.7;">
+                        ${
+                            data.ai_feedback && data.ai_feedback.length > 0
+                                ? data.ai_feedback.map(item => `<li><i class="fa-solid fa-arrow-right" style="color: #38bdf8;"></i> ${item}</li>`).join("")
+                                : `<li>Maintain clear action verbs and quantifiable results in your experience section.</li>`
+                        }
+                    </ul>
                 </div>
             `;
 
-            // Render charts
-            renderChart(data.chart_data);
-            renderPieChart(data.match_score);
+            // ------------------------------------------------------------------
+            // Render Chart.js Visualization
+            // ------------------------------------------------------------------
+            if (chartCanvas && data.chart_data) {
+                chartContainer.classList.remove("hidden");
+
+                if (skillsChart) {
+                    skillsChart.destroy();
+                }
+
+                skillsChart = new Chart(chartCanvas, {
+                    type: "bar",
+                    data: {
+                        labels: data.chart_data.labels || ["Matched Skills", "Missing Skills", "Job Required"],
+                        datasets: [{
+                            label: "Skill Count Breakdown",
+                            data: data.chart_data.values || [data.resume_skills?.length || 0, data.missing_skills?.length || 0, data.job_skills?.length || 0],
+                            backgroundColor: [
+                                "rgba(16, 185, 129, 0.75)",
+                                "rgba(239, 68, 68, 0.75)",
+                                "rgba(59, 130, 246, 0.75)"
+                            ],
+                            borderColor: [
+                                "#10b981",
+                                "#ef4444",
+                                "#3b82f6"
+                            ],
+                            borderWidth: 1.5,
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: { color: "#94a3b8", stepSize: 1 },
+                                grid: { color: "rgba(255, 255, 255, 0.06)" }
+                            },
+                            x: {
+                                ticks: { color: "#94a3b8" },
+                                grid: { display: false }
+                            }
+                        }
+                    }
+                });
+            }
 
         } catch (error) {
-            console.error("Analyze Error:", error);
-            resultArea.innerHTML = `<p class="flash danger">Something went wrong. Please try again.</p>`;
-        }
-    });
-}
-
-
-// -----------------------------
-// BAR CHART
-// -----------------------------
-function renderChart(chartData) {
-    if (!chartCanvas || !chartData) return;
-
-    if (skillsChart) {
-        skillsChart.destroy();
-    }
-
-    skillsChart = new Chart(chartCanvas, {
-        type: "bar",
-        data: {
-            labels: chartData.labels || [],
-            datasets: [{
-                label: "Skill Analysis",
-                data: chartData.values || [],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    labels: { color: "white" }
-                }
-            },
-            scales: {
-                x: { ticks: { color: "white" } },
-                y: {
-                    ticks: { color: "white" },
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-}
-
-
-// -----------------------------
-// DOUGHNUT SCORE CHART
-// -----------------------------
-function renderPieChart(score) {
-    const ctx = document.getElementById("scorePieChart");
-    if (!ctx) return;
-
-    if (pieChart) {
-        pieChart.destroy();
-    }
-
-    let color;
-    if (score >= 85) color = "#00ffae";
-    else if (score >= 50) color = "#facc15";
-    else color = "#ff4d4d";
-
-    pieChart = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-            datasets: [{
-                data: [score, 100 - score],
-                backgroundColor: [color, "rgba(255,255,255,0.08)"],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            cutout: "70%",
-            plugins: {
-                legend: { display: false }
-            }
+            console.error(error);
+            resultArea.innerHTML = `
+                <div class="flash-toast flash-danger">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <span>An error occurred while analyzing the resume. Please check your network and try again.</span>
+                </div>
+            `;
+        } finally {
+            submitBtn.disabled = false;
+            btnText.classList.remove("hidden");
+            btnSpinner.classList.add("hidden");
         }
     });
 }

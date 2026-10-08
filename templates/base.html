@@ -3,48 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}ResumeX Pro{% endblock %}</title>
+    <title>{% block title %}ResumeX Pro &bull; AI Resume Intelligence{% endblock %}</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20%22100%22%20%22100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 </head>
 <body>
 
-    <div class="bg-blur bg1"></div>
-    <div class="bg-blur bg2"></div>
-    <div class="bg-blur bg3"></div>
+    <!-- Ambient Glow Background Blobs -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
 
-    <nav class="navbar">
-        <div class="logo">ResumeX <span>Pro</span></div>
-        <div class="nav-links">
-            {% if session.get('logged_in') %}
-                <a href="{{ url_for('analyzer_page') }}">Analyzer</a>
-                <a href="{{ url_for('history_page') }}">History</a>
-                <a href="{{ url_for('about') }}">About</a>
-                <a href="{{ url_for('logout') }}">Logout</a>
-            {% else %}
+    <!-- Top Navigation Bar -->
+    <header class="app-navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}" class="brand-logo">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <div class="brand-text">
+                    ResumeX <span class="brand-badge">PRO</span>
+                </div>
+            </a>
 
-                <a href="{{ url_for('home') }}">Home</a>
-                <a href="{{ url_for('register') }}">Register</a>
-                <a href="{{ url_for('login') }}">Login</a>
-                <a href="{{ url_for('about') }}">About</a>
-            {% endif %}
+            <nav class="nav-links">
+                {% if session.get('logged_in') %}
+                    <a href="{{ url_for('analyzer_page') }}" class="nav-link {% if request.path == url_for('analyzer_page') %}active{% endif %}">
+                        <i class="fa-solid fa-brain"></i> Analyzer
+                    </a>
+                    <a href="{{ url_for('history_page') }}" class="nav-link {% if request.path == url_for('history_page') %}active{% endif %}">
+                        <i class="fa-solid fa-clock-rotate-left"></i> History
+                    </a>
+                    <a href="{{ url_for('about') }}" class="nav-link {% if request.path == url_for('about') %}active{% endif %}">
+                        <i class="fa-solid fa-circle-info"></i> About
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('home') }}" class="nav-link {% if request.path == url_for('home') %}active{% endif %}">
+                        <i class="fa-solid fa-house"></i> Home
+                    </a>
+                    <a href="{{ url_for('about') }}" class="nav-link {% if request.path == url_for('about') %}active{% endif %}">
+                        <i class="fa-solid fa-circle-info"></i> About
+                    </a>
+                {% endif %}
+            </nav>
+
+            <div class="nav-actions">
+                {% if session.get('logged_in') %}
+                    <div class="user-pill">
+                        <i class="fa-solid fa-user-circle"></i>
+                        <span>{{ session.get('user_name', 'User') }}</span>
+                    </div>
+                    <a href="{{ url_for('logout') }}" class="btn btn-outline-danger">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Logout</span>
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="btn btn-secondary">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In
+                    </a>
+                    <a href="{{ url_for('register') }}" class="btn btn-primary">
+                        <i class="fa-solid fa-user-plus"></i> Get Started
+                    </a>
+                {% endif %}
+            </div>
         </div>
-    </nav>
+    </header>
 
-    <div class="container">
+    <!-- Main Content Container -->
+    <main class="main-wrapper">
+        <!-- Toast / Flash Notifications -->
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
-                <div class="flash-wrap">
+                <div class="flash-container">
                     {% for category, message in messages %}
-                        <div class="flash {{ category }}">{{ message }}</div>
+                        <div class="flash-toast flash-{{ category }}">
+                            <div class="flash-icon">
+                                {% if category == 'success' %}
+                                    <i class="fa-solid fa-circle-check"></i>
+                                {% elif category == 'danger' %}
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                {% elif category == 'warning' %}
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                {% else %}
+                                    <i class="fa-solid fa-circle-info"></i>
+                                {% endif %}
+                            </div>
+                            <div class="flash-text">{{ message }}</div>
+                            <button class="flash-close" onclick="this.parentElement.remove()">&times;</button>
+                        </div>
                     {% endfor %}
                 </div>
             {% endif %}
         {% endwith %}
 
         {% block content %}{% endblock %}
-    </div>
+    </main>
 
-    <!-- JS Libraries -->
+    <!-- App Footer -->
+    <footer class="app-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    ResumeX <span class="brand-badge">PRO</span>
+                </div>
+                <p class="footer-subtext">
+                    Empowering job seekers with AI-driven resume scoring, NLP skill extraction, and ATS optimization.
+                </p>
+            </div>
+            <div class="footer-right">
+                <div class="creator-badge">
+                    <span>Engineered with Python &bull; Flask &bull; Scikit-Learn</span>
+                    <strong class="text-white">Harshita Muchhadiya</strong>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chart.js & Core JS Script -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

@@ -1,104 +1,213 @@
 {% extends "base.html" %}
 
-{% block title %}ResumeX - Smart Resume Analyzer{% endblock %}
+{% block title %}ResumeX Pro &bull; AI Resume Analyzer & ATS Score Matcher{% endblock %}
 
 {% block content %}
 
-<!-- 🔥 HERO SECTION -->
-<section class="hero glass-card hero-modern">
-
-    <div class="hero-content">
-
-        <span class="badge">🚀 AI Resume Analyzer</span>
-
-        <h1>
-            Land Your Dream Job with <span>Smart Resume Insights</span>
-        </h1>
-
-        <p>
-            Analyze your resume instantly, match it with job descriptions,
-            and get powerful AI-driven suggestions to boost your chances.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="{{ url_for('register') }}" class="primary-btn">Get Started Free</a>
-            <a href="{{ url_for('login') }}" class="secondary-btn">Login</a>
-        </div>
-
-        <div class="hero-stats">
-            <div><strong>95%</strong><span>Accuracy</span></div>
-            <div><strong>Instant</strong><span>Analysis</span></div>
-            <div><strong>AI</strong><span>Powered</span></div>
-        </div>
-
+<!-- HERO SECTION -->
+<section class="hero-section">
+    <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Next-Generation AI Career Intelligence</span>
     </div>
 
+    <h1 class="hero-title">
+        Land Your Dream Tech Job With <br>
+        <span class="gradient-text">Precision Resume Intelligence</span>
+    </h1>
+
+    <p class="hero-description">
+        Analyze your resume against any job description in seconds. Powered by <strong>Natural Language Processing (NLP)</strong>, <strong>TF-IDF Vectorization</strong>, and <strong>Cosine Similarity</strong> to detect skill gaps, optimize ATS readiness, and generate actionable recommendations.
+    </p>
+
+    <div class="hero-cta-group">
+        <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Get Started Free
+        </a>
+        <a href="{{ url_for('login') }}" class="btn btn-secondary btn-lg">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In to Account
+        </a>
+    </div>
+
+    <!-- Live Metrics Strip -->
+    <div class="stats-strip">
+        <div class="stat-item">
+            <div class="stat-number">95%+</div>
+            <div class="stat-label">Extraction Accuracy</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <div class="stat-number">250+</div>
+            <div class="stat-label">Tech Skills Taxonomy</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <div class="stat-number">&lt; 1.5s</div>
+            <div class="stat-label">Analysis Speed</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Free & Privacy-Focused</div>
+        </div>
+    </div>
 </section>
 
+<!-- INTERACTIVE PREVIEW MOCKUP -->
+<section class="preview-showcase">
+    <div class="mockup-window glass-card">
+        <div class="mockup-header">
+            <div class="mockup-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+            </div>
+            <div class="mockup-title">
+                <i class="fa-solid fa-shield-halved"></i> Live Analysis Engine Preview
+            </div>
+            <div class="mockup-status">
+                <span class="pulse-indicator"></span> Ready
+            </div>
+        </div>
+        <div class="mockup-body">
+            <div class="mockup-grid">
+                <div class="mockup-card score-highlight">
+                    <div class="score-dial">
+                        <div class="score-circle">
+                            <span class="score-value">88%</span>
+                            <span class="score-text">ATS MATCH</span>
+                        </div>
+                    </div>
+                    <div class="score-verdict">
+                        <span class="verdict-tag success">Strong Candidate Match</span>
+                        <p>High semantic alignment with target backend requirements.</p>
+                    </div>
+                </div>
 
-<!-- ✨ HOW IT WORKS -->
+                <div class="mockup-card details-highlight">
+                    <div class="mockup-section-title">
+                        <i class="fa-solid fa-circle-check text-success"></i> Matched Competencies
+                    </div>
+                    <div class="pill-group">
+                        <span class="pill pill-success">Python</span>
+                        <span class="pill pill-success">Django</span>
+                        <span class="pill pill-success">Flask</span>
+                        <span class="pill pill-success">REST APIs</span>
+                        <span class="pill pill-success">MySQL</span>
+                        <span class="pill pill-success">React.js</span>
+                    </div>
+
+                    <div class="mockup-section-title mt-4">
+                        <i class="fa-solid fa-triangle-exclamation text-warning"></i> ATS Optimization Opportunities
+                    </div>
+                    <ul class="mockup-checklist">
+                        <li><i class="fa-solid fa-check"></i> Word count is within optimal recruiter range (380 words)</li>
+                        <li><i class="fa-solid fa-arrow-trend-up"></i> Add explicit mentions of Git version control & CI/CD</li>
+                        <li><i class="fa-solid fa-check"></i> High keyword density for core Python frameworks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS SECTION -->
 <section class="steps-section">
-
-    <h2>How It Works</h2>
-
-    <div class="steps-container">
-
-        <div class="step-card">
-            <h3>📄 Upload Resume</h3>
-            <p>Drag & drop your PDF resume in seconds.</p>
-        </div>
-
-        <div class="step-card">
-            <h3>🎯 Match Job</h3>
-            <p>Paste job description to compare instantly.</p>
-        </div>
-
-        <div class="step-card">
-            <h3>📊 Get Insights</h3>
-            <p>Receive score, skills gap & suggestions.</p>
-        </div>
-
+    <div class="section-heading">
+        <span class="subheading">Streamlined Workflow</span>
+        <h2>How ResumeX Pro Elevates Your Career in 3 Steps</h2>
     </div>
 
+    <div class="steps-grid">
+        <div class="step-card glass-card">
+            <div class="step-number">01</div>
+            <div class="step-icon">
+                <i class="fa-solid fa-file-pdf"></i>
+            </div>
+            <h3>Upload Resume</h3>
+            <p>Drag and drop your PDF resume. Our PyPDF2 text extraction module instantly parses all structural text and sections.</p>
+        </div>
+
+        <div class="step-card glass-card">
+            <div class="step-number">02</div>
+            <div class="step-icon">
+                <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h3>Target Job Role</h3>
+            <p>Paste the employer's job description or select one of our curated tech role templates (Python, Full-Stack, ML).</p>
+        </div>
+
+        <div class="step-card glass-card">
+            <div class="step-number">03</div>
+            <div class="step-icon">
+                <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <h3>Get AI Intelligence</h3>
+            <p>Receive your mathematical ATS score, detected skills, missing keywords, and downloadable optimization report.</p>
+        </div>
+    </div>
 </section>
 
+<!-- CORE FEATURES GRID -->
+<section class="features-section">
+    <div class="section-heading">
+        <span class="subheading">Cutting-Edge Features</span>
+        <h2>Engineered For Modern Tech Hiring</h2>
+    </div>
 
-<!-- 💎 CTA SECTION -->
-<section class="cta-section glass-card">
+    <div class="features-grid">
+        <div class="feature-card glass-card">
+            <div class="feature-icon"><i class="fa-solid fa-calculator"></i></div>
+            <h3>TF-IDF & Cosine Similarity</h3>
+            <p>Uses mathematical vector modeling from Scikit-Learn to measure genuine topic alignment without false positives from resume length.</p>
+        </div>
 
-    <h2>Ready to Improve Your Resume?</h2>
-    <p>Start analyzing and stand out from other candidates today.</p>
+        <div class="feature-card glass-card">
+            <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <h3>250+ Skill Taxonomy</h3>
+            <p>Identifies exact languages, web frameworks, cloud technologies, database tools, and ML algorithms using custom regex tokenizers.</p>
+        </div>
 
-    <a href="{{ url_for('register') }}" class="primary-btn large-btn">
-        Start Now 🚀
-    </a>
+        <div class="feature-card glass-card">
+            <div class="feature-icon"><i class="fa-solid fa-chart-column"></i></div>
+            <h3>Interactive Visual Charts</h3>
+            <p>Visualizes skill balance, keyword overlap, and category breakdowns with dynamic Chart.js rendering directly on the dashboard.</p>
+        </div>
 
+        <div class="feature-card glass-card">
+            <div class="feature-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <h3>Education & Degree Detection</h3>
+            <p>Automatically scans for academic qualifications (BCA, MCA, B.Tech, BSc) to verify educational minimums required by recruiters.</p>
+        </div>
+
+        <div class="feature-card glass-card">
+            <div class="feature-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <h3>Session History & Tracking</h3>
+            <p>All your evaluations are saved privately to your dashboard so you can track your score improvements over time.</p>
+        </div>
+
+        <div class="feature-card glass-card">
+            <div class="feature-icon"><i class="fa-solid fa-file-arrow-down"></i></div>
+            <h3>One-Click Report Export</h3>
+            <p>Download comprehensive plain text and analytical reports to review recommendations before applying to employers.</p>
+        </div>
+    </div>
 </section>
 
-
-<!-- 🌙 FOOTER -->
-<footer class="footer">
-
-    <div class="footer-container">
-
-        <div class="footer-brand">
-            <h2>ResumeX Pro</h2>
-            <p>AI-powered resume analysis for smarter job applications.</p>
+<!-- CALL TO ACTION BANNER -->
+<section class="cta-banner glass-card">
+    <div class="cta-content">
+        <h2>Ready to Beat the Applicant Tracking System?</h2>
+        <p>Join students and developers using ResumeX Pro to optimize their resumes for real job offers.</p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg">
+                <i class="fa-solid fa-rocket"></i> Get Started Free
+            </a>
+            <a href="{{ url_for('about') }}" class="btn btn-outline btn-lg">
+                <i class="fa-solid fa-circle-info"></i> Learn How It Works
+            </a>
         </div>
-
-        <div class="footer-links">
-            <a href="{{ url_for('home') }}">Home</a>
-            <a href="{{ url_for('about') }}">About</a>
-            <a href="{{ url_for('login') }}">Login</a>
-            <a href="{{ url_for('register') }}">Register</a>
-        </div>
-
     </div>
-
-    <div class="footer-bottom">
-        <p>© 2026 ResumeX Pro • Built with ❤️</p>
-    </div>
-
-</footer>
+</section>
 
 {% endblock %}

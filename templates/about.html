@@ -1,31 +1,76 @@
 {% extends "base.html" %}
 
+{% block title %}About ResumeX Pro &bull; AI Architecture & Creator{% endblock %}
+
 {% block content %}
-<section class="glass-card about-card">
-    <span class="badge">About ResumeX Pro</span>
-    <h1>Professional Resume Intelligence for Better Career Matches</h1>
-    <p>
-        ResumeX Pro is an AI-powered resume analysis platform designed to help students,
-        freshers, and professionals improve their resume quality and job compatibility.
+
+<section class="about-hero glass-card">
+    <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>System Architecture & Engineering</span>
+    </div>
+
+    <h1 class="about-title">
+        Inside <span class="gradient-text">ResumeX Pro</span>
+    </h1>
+
+    <p class="about-description">
+        ResumeX Pro is an intelligent resume parsing, scoring, and skill-gap detection engine engineered with Python, Flask, and Scikit-Learn. Designed to bridge the gap between job seekers and automated Applicant Tracking Systems (ATS).
     </p>
 
-    <div class="about-grid">
-        <div class="feature-box">
-            <h3>Resume Match Score</h3>
-            <p>Instantly calculate how closely your resume matches the job description.</p>
+    <!-- Architecture Breakdown Cards -->
+    <div class="architecture-grid">
+        <div class="arch-card">
+            <div class="arch-number">01</div>
+            <h3>PDF Text Extraction</h3>
+            <p>Utilizes PyPDF2 to parse multi-page binary PDF resumes into structured, machine-readable plain text with UTF-8 normalization.</p>
         </div>
-        <div class="feature-box">
-            <h3>Skill Gap Detection</h3>
-            <p>Identify missing skills and optimize your profile strategically.</p>
+
+        <div class="arch-card">
+            <div class="arch-number">02</div>
+            <h3>NLP Text Preprocessing</h3>
+            <p>Applies lowercasing, regex-based punctuation cleaning, and selective stop-word filtering to preserve technical compound phrases.</p>
         </div>
-        <div class="feature-box">
-            <h3>Improvement Suggestions</h3>
-            <p>Receive actionable feedback to make your resume stronger and smarter.</p>
+
+        <div class="arch-card">
+            <div class="arch-number">03</div>
+            <h3>TF-IDF & Cosine Similarity</h3>
+            <p>Calculates multi-dimensional term vectors and measures the cosine angle between resume and job description representations.</p>
         </div>
-        <div class="feature-box">
-            <h3>Professional Dashboard</h3>
-            <p>Clean, modern, and user-friendly interface built with Flask.</p>
+
+        <div class="arch-card">
+            <div class="arch-number">04</div>
+            <h3>Weighted Scoring Model</h3>
+            <p>Blends 50% skill overlap, 25% semantic cosine similarity, 15% resume structure quality, and 10% keyword density.</p>
         </div>
     </div>
 </section>
+
+<!-- DEVELOPER PROFILE CARD -->
+<section class="creator-section glass-card mt-8">
+    <div class="creator-grid">
+        <div class="creator-info">
+            <span class="subheading">Project Lead & Developer</span>
+            <h2>Harshita Muchhadiya</h2>
+            <div class="creator-roles">
+                <span class="pill pill-primary">Python Developer</span>
+                <span class="pill pill-primary">Full-Stack Engineer</span>
+                <span class="pill pill-primary">ML Enthusiast</span>
+                <span class="pill pill-primary">BCA 2026</span>
+            </div>
+            <p class="creator-bio">
+                BCA student at Shreyarth University with internship experience at <strong>Techmicra IT Solutions</strong> (Python Django) and <strong>AICW by Microsoft</strong> (Machine Learning). Creator of the live <strong>FinSight Analytics</strong> platform deployed on Cloudflare Workers and the ResumeX Pro intelligence engine.
+            </p>
+            <div class="creator-links">
+                <a href="https://floral-meadow-d466.harshitamuchhadiya2.workers.dev/" target="_blank" class="btn btn-secondary btn-sm">
+                    <i class="fa-solid fa-globe"></i> Live FinSight App
+                </a>
+                <a href="https://github.com/harshitamuchhadiya2-gif/ResumeX-AI" target="_blank" class="btn btn-outline btn-sm">
+                    <i class="fa-brands fa-github"></i> ResumeX GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
